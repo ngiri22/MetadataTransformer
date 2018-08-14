@@ -13,13 +13,12 @@ import com.artesia.common.exception.BaseTeamsException;
 import com.artesia.entity.TeamsIdentifier;
 import com.artesia.metadata.MetadataCollection;
 import com.artesia.metadata.MetadataField;
-import com.artesia.metadata.MetadataTable;
 import com.artesia.metadata.MetadataTableField;
 import com.artesia.metadata.MetadataValue;
 import com.artesia.security.SecuritySession;
 import com.artesia.server.asset.imprt.AssetImportInterceptor;
 import com.artesia.server.storage.StorageContext;
-import com.nttdata.lumileds.opentext.transformer.constants.MetadataConstants;
+import com.nttdata.lumileds.opentext.transformer.utility.MetadataConstants;
 import com.nttdata.lumileds.opentext.transformer.utility.SqlUtility;
 
 public class MetadataTransformer implements AssetImportInterceptor {
@@ -43,13 +42,18 @@ public class MetadataTransformer implements AssetImportInterceptor {
 							session
 							);
 
-			//MetadataTableField regionTableField = (MetadataTableField) 
-			//assetMetadata.findElementById(MetadataConstants.REGION_ID_FIELD);
-
 			SqlUtility sqlUtility = new SqlUtility(); 
 
+			String assetNameWithExtension = asset.getName();
+
+			log.debug("Asset Name with Extension: " + assetNameWithExtension);
+
+			String[] assetPALId = assetNameWithExtension.split(MetadataConstants.DOT);
+
+			log.debug("Asset PAL ID: " + assetPALId[0]);
+
 			HashMap<String,String> palMetadataMap = sqlUtility.getAssetMetadata
-					(asset.getName(), context.getJDBCConnection());
+					(assetPALId[0], context.getJDBCConnection());
 
 			MetadataTableField processedRegionField = processRegionTabularField(palMetadataMap);
 
@@ -60,10 +64,12 @@ public class MetadataTransformer implements AssetImportInterceptor {
 				assetMetadata.replaceElement(scalarField, true);
 
 			}
-			
-			MetadataTable processedUsageRightsTable = processUsageRightsTable(palMetadataMap);
-			
-			assetMetadata.replaceElement(processedUsageRightsTable, true);
+
+			for (MetadataTableField processedTableField : processUsageRightsTable(palMetadataMap)) {
+
+				assetMetadata.replaceElement(processedTableField, true);
+
+			}
 
 			asset.setMetadata(assetMetadata);
 
@@ -72,20 +78,55 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 	}
 
-	private MetadataTable processUsageRightsTable(HashMap<String, String> palMetadataMap) {
-		
-		MetadataTable usageRightsTable = new MetadataTable(MetadataConstants.USAGE_RIGHTS_TABLE);
-		
-		String usageRightsValues = palMetadataMap.get(arg0)
-		
-		return usageRightsTable;
-		
+	private List<MetadataTableField> processUsageRightsTable(HashMap<String, String> palMetadataMap) {
+
+		List<MetadataTableField> usageRightsTableFields = new ArrayList<MetadataTableField>();
+
+		for ( String usageRightsFieldId : MetadataConstants.USAGE_RIGHTS_FIELDS) {
+
+			log.debug("Processing usagerights field: " + usageRightsFieldId);
+
+			MetadataTableField usageRightsTableField = new MetadataTableField(new TeamsIdentifier(usageRightsFieldId));
+
+			String metadataValue = palMetadataMap.get(usageRightsFieldId);
+
+			log.debug("Usage Rights field value: " + metadataValue );
+
+			if (null != metadataValue) {
+
+				if ( usageRightsFieldId.equals(MetadataConstants.USAGE_RIGHTS_FIELDS[0]) ||
+						usageRightsFieldId.equals(MetadataConstants.USAGE_RIGHTS_FIELDS[1]) ) {
+
+					log.debug("Yes/No domain entry for field: " + usageRightsFieldId );
+
+					if(metadataValue.equals("Yes")) {
+
+						usageRightsTableField.addValue(MetadataConstants.YES_CODE);
+					}
+					else {
+
+						usageRightsTableField.addValue(MetadataConstants.NO_CODE);
+					}
+
+				}
+				else {
+
+					usageRightsTableField.addValue(metadataValue);
+				}
+
+				usageRightsTableFields.add(usageRightsTableField);
+			}
+
+		}
+
+		return usageRightsTableFields;
+
 	}
 
 	private MetadataTableField processRegionTabularField(
 			HashMap<String, String> palMetadataMap) {
 
-		MetadataTableField regionTableField = new MetadataTableField(MetadataConstants.REGION_ID_FIELD);
+		MetadataTableField regionTableField = new MetadataTableField(new TeamsIdentifier(MetadataConstants.REGION_FIELD));
 
 		String regionValues = palMetadataMap.get(MetadataConstants.REGION_FIELD);
 
@@ -127,16 +168,33 @@ public class MetadataTransformer implements AssetImportInterceptor {
 		for ( String scalarField : MetadataConstants.SCALAR_FIELDS) {
 
 			String palMetadataValue = palMetadataMap.get(scalarField);
-			
+
 			log.debug("Scalar Field : " + scalarField);
-			
+
 			log.debug("MetadataValue : " + palMetadataValue );
-			
+
 			MetadataField metadataField = new MetadataField(new TeamsIdentifier(scalarField));
 
-			metadataField.setValue(palMetadataValue);
+
+			if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[0])) {
+
+				String isoLanguagesCode = MetadataConstants.ISO_LANGUAGES_MAP.get(palMetadataValue);
+
+				log.debug("ISO Language code: " + isoLanguagesCode);
+
+				metadataField.setValue(isoLanguagesCode);
+			}
+			else {
+
+				metadataField.setValue(palMetadataValue);
+
+			}
+
 
 			scalarFields.add(metadataField);
+
+
+
 		}
 
 		return scalarFields;
