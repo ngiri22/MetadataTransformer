@@ -1,4 +1,3 @@
-src/main/resources/*.jar
 .classpath
 .settings/
 .project
