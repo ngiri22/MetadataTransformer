@@ -1,6 +1,5 @@
 package com.nttdata.lumileds.opentext.transformer;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,17 +9,15 @@ import org.apache.commons.logging.LogFactory;
 import com.artesia.asset.Asset;
 import com.artesia.asset.metadata.services.AssetMetadataServices;
 import com.artesia.common.exception.BaseTeamsException;
-import com.artesia.entity.TeamsIdentifier;
 import com.artesia.metadata.MetadataCollection;
 import com.artesia.metadata.MetadataField;
-import com.artesia.metadata.MetadataTable;
 import com.artesia.metadata.MetadataTableField;
-import com.artesia.metadata.MetadataValue;
 import com.artesia.security.SecuritySession;
 import com.artesia.server.asset.imprt.AssetImportInterceptor;
 import com.artesia.server.storage.StorageContext;
-import com.nttdata.lumileds.opentext.transformer.constants.MetadataConstants;
-import com.nttdata.lumileds.opentext.transformer.utility.SqlUtility;
+import com.nttdata.lumileds.opentext.transformer.repository.MetadataRepository;
+import com.nttdata.lumileds.opentext.transformer.repository.SQLRepository;
+import com.nttdata.lumileds.opentext.transformer.utility.MetadataConstants;
 
 public class MetadataTransformer implements AssetImportInterceptor {
 
@@ -43,27 +40,41 @@ public class MetadataTransformer implements AssetImportInterceptor {
 							session
 							);
 
-			//MetadataTableField regionTableField = (MetadataTableField) 
-			//assetMetadata.findElementById(MetadataConstants.REGION_ID_FIELD);
+			SQLRepository sQLRepository = new SQLRepository(); 
 
-			SqlUtility sqlUtility = new SqlUtility(); 
+			String assetNameWithExtension = asset.getName();
 
-			HashMap<String,String> palMetadataMap = sqlUtility.getAssetMetadata
-					(asset.getName(), context.getJDBCConnection());
+			log.debug("Asset Name with Extension: " + assetNameWithExtension);
 
-			MetadataTableField processedRegionField = processRegionTabularField(palMetadataMap);
+			String[] assetPALId = assetNameWithExtension.split(MetadataConstants.DOT);
 
-			assetMetadata.replaceElement(processedRegionField, true);
+			log.debug("Asset PAL ID: " + assetPALId[0]);
 
-			for (MetadataField scalarField : processScalarFields(palMetadataMap) ) {
+			HashMap<String,String> palMetadataMap = sQLRepository.getAssetMetadata
+					(assetPALId[0], context.getJDBCConnection());
+			
+			MetadataRepository metadataRepository = new MetadataRepository();
+
+			for ( MetadataTableField processedMediaTabularField : 
+				metadataRepository.processMediaTabularField(palMetadataMap) )
+			{
+				assetMetadata.replaceElement(processedMediaTabularField, true);
+
+			}
+
+			for (MetadataField scalarField : 
+				metadataRepository.processScalarFields(palMetadataMap) ) {
 
 				assetMetadata.replaceElement(scalarField, true);
 
 			}
-			
-			MetadataTable processedUsageRightsTable = processUsageRightsTable(palMetadataMap);
-			
-			assetMetadata.replaceElement(processedUsageRightsTable, true);
+
+			for (MetadataTableField processedTableField : 
+				metadataRepository.processUsageRightsTable(palMetadataMap)) {
+
+				assetMetadata.replaceElement(processedTableField, true);
+
+			}
 
 			asset.setMetadata(assetMetadata);
 
@@ -72,74 +83,5 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 	}
 
-	private MetadataTable processUsageRightsTable(HashMap<String, String> palMetadataMap) {
-		
-		MetadataTable usageRightsTable = new MetadataTable(MetadataConstants.USAGE_RIGHTS_TABLE);
-		
-		String usageRightsValues = palMetadataMap.get(arg0)
-		
-		return usageRightsTable;
-		
-	}
-
-	private MetadataTableField processRegionTabularField(
-			HashMap<String, String> palMetadataMap) {
-
-		MetadataTableField regionTableField = new MetadataTableField(MetadataConstants.REGION_ID_FIELD);
-
-		String regionValues = palMetadataMap.get(MetadataConstants.REGION_FIELD);
-
-		if ( null != regionValues ) {
-
-			if ( regionValues.contains(MetadataConstants.ALL_STRING) ) {
-
-				for (MetadataValue regionField : MetadataConstants.REGION_VALUES ) {
-
-					regionTableField.addValue(regionField);
-
-				}
-
-			}
-			else {
-
-				for ( String region :  regionValues.split(MetadataConstants.COMMA)) {
-
-					if ( region.equals("APR") ) {
-						region = "APAC";
-					}
-
-					log.debug("Region field value: " + region);
-
-					regionTableField.addValue(new MetadataValue ( region ));
-				}
-
-			}
-		}
-
-		return regionTableField;
-	}
-
-	private List<MetadataField> processScalarFields
-	(HashMap<String, String> palMetadataMap) {
-
-		List<MetadataField> scalarFields = new ArrayList<MetadataField>();
-
-		for ( String scalarField : MetadataConstants.SCALAR_FIELDS) {
-
-			String palMetadataValue = palMetadataMap.get(scalarField);
-			
-			log.debug("Scalar Field : " + scalarField);
-			
-			log.debug("MetadataValue : " + palMetadataValue );
-			
-			MetadataField metadataField = new MetadataField(new TeamsIdentifier(scalarField));
-
-			metadataField.setValue(palMetadataValue);
-
-			scalarFields.add(metadataField);
-		}
-
-		return scalarFields;
-	}
-
+	
 }
