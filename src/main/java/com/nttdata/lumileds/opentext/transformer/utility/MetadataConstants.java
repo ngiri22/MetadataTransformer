@@ -18,6 +18,7 @@ public class MetadataConstants {
 	public static final String DOT = "\\.";
 
 	public static final String REGION_FIELD = "REGIONS";
+	public static final String COUNTRIES_FIELD = "COUNTRIES";
 
 	public static MetadataValue[] REGION_VALUES = {
 			new MetadataValue("EMEA"),
@@ -39,7 +40,6 @@ public class MetadataConstants {
 				"LUM.FIELD.DESCRIPTION",
 				"LUM.FIELD.KEYWORDS",  
 				"LUM.FIELD.MASTER_FILE_NAME",
-				"LUM.FIELD.COUNTRIES",
 				"LUM.FIELD.CONTENT_EDITOR",
 				"LUM.FIELD.LEGACY_OWNER_EMAIL"
 		};
@@ -51,7 +51,8 @@ public class MetadataConstants {
 				"COPYRIGHT_GEO_LOCATION",
 				"COPYRIGHT_TOUCHPOINTS",
 				"COPYRIGHT_START_DATE",
-				"COPYRIGHT_END_DATE" /*,
+				"COPYRIGHT_END_DATE"
+				/*,
 				"DEACTIVATION_DATE",
 				"ACTIVATION_DATE",
 				"CREATOR_OWNER_GROUP"*/
@@ -67,8 +68,8 @@ public class MetadataConstants {
 				new TeamsIdentifier(SCALAR_FIELDS[5]),
 				new TeamsIdentifier(SCALAR_FIELDS[6]),
 				new TeamsIdentifier(SCALAR_FIELDS[7]),
-				new TeamsIdentifier(SCALAR_FIELDS[8]),
 				new TeamsIdentifier(REGION_FIELD),
+				new TeamsIdentifier(COUNTRIES_FIELD),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[0]),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[1]),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[2]),
@@ -80,7 +81,9 @@ public class MetadataConstants {
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[8])*/
 		};
 
-	public static final HashMap<String, String> ISO_LANGUAGES_MAP = new HashMap<String, String>(); 
+	public static final HashMap<String, String> ISO_LANGUAGES_MAP = new HashMap<String, String>();
+
+	
 	static {
 		ISO_LANGUAGES_MAP.put("Chinese (Simplified)","chi");
 		ISO_LANGUAGES_MAP.put("Chinese (Taiwan)","chi");

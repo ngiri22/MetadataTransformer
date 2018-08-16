@@ -1,4 +1,4 @@
-package com.nttdata.lumileds.opentext.transformer.utility;
+package com.nttdata.lumileds.opentext.transformer.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,9 +9,9 @@ import java.util.HashMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class SqlUtility {
+public class SQLRepository {
 
-	private static final Log log = LogFactory.getLog(SqlUtility.class);
+	private static final Log log = LogFactory.getLog(SQLRepository.class);
 
 	public HashMap<String, String> getMetadata(String name) {
 

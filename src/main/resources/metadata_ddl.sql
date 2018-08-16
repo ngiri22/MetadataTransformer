@@ -2,8 +2,10 @@
 /* ** FIELD TABLES ** */
 
 /*
+
 Media Information table
-*/
+
+ */
 CREATE TABLE LUM_MD_MEDIA_INFO(
 	UOI_ID nvarchar(40) NOT NULL,
 	MEDIA_TITLE nvarchar(250) NULL,
@@ -31,7 +33,8 @@ Media Info Tabular table
 */
 CREATE TABLE LUM_MD_MEDIA_INFO_TAB(
 	UOI_ID nvarchar(40) NOT NULL,
-	REGIONS nvarchar(20) NULL
+	REGIONS nvarchar(20) NULL,
+	COUNTRIES nvarchar(500) NULL
 );
 
 ALTER TABLE LUM_MD_MEDIA_INFO_TAB  
