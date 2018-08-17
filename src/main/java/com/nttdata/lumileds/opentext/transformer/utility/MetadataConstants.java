@@ -28,9 +28,6 @@ public class MetadataConstants {
 			new MetadataValue("NAFTA")
 	};
 
-	//	public static final TeamsIdentifier REGION_ID_FIELD = new TeamsIdentifier(REGION_FIELD);
-
-
 
 	public static final String[] SCALAR_FIELDS = 
 		{
@@ -52,10 +49,13 @@ public class MetadataConstants {
 				"COPYRIGHT_TOUCHPOINTS",
 				"COPYRIGHT_START_DATE",
 				"COPYRIGHT_END_DATE"
-				/*,
+		};
+	
+	public static final String[] FILE_INFO_TAB_FIELDS = 
+		{
 				"DEACTIVATION_DATE",
 				"ACTIVATION_DATE",
-				"CREATOR_OWNER_GROUP"*/
+				"CREATOR_OWNER_GROUP"
 		};
 
 	public static final TeamsIdentifier[] FIELD_IDS = 
@@ -75,10 +75,10 @@ public class MetadataConstants {
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[2]),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[3]),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[4]),
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[5]) /*,
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[6]),
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[7]),
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[8])*/
+				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[5]),
+				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[0]),
+				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[1]),
+				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[2])
 		};
 
 	public static final HashMap<String, String> ISO_LANGUAGES_MAP = new HashMap<String, String>();

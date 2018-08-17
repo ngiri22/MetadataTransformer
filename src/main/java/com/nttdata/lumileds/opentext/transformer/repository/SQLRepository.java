@@ -18,7 +18,7 @@ public class SQLRepository {
 		return null;
 	}
 
-	public HashMap<String, String> getAssetMetadata(String assetName, Connection conn) {
+	public HashMap<String, String> getAssetMetadata(String palId, Connection conn) {
 
 		HashMap<String, String> resultMap = new HashMap<String, String>();
 
@@ -33,24 +33,54 @@ public class SQLRepository {
 				"	b.id = ?";
 
 		PreparedStatement assetMetadataSelectStatement;
+
 		try {
-			
+
 			assetMetadataSelectStatement = conn.prepareStatement(assetMetadata);
 
-			assetMetadataSelectStatement.setString(1, assetName);
+			assetMetadataSelectStatement.setString(1, palId);
 
 			ResultSet rs = assetMetadataSelectStatement.executeQuery();
-			
-			 while (rs.next()) {
-				 
-				 resultMap.put(rs.getString(1), rs.getString(2));
-			 }
 
-		} catch (SQLException e) {
-			log.info("Exception while fetching data: {} ", e);
+			while (rs.next()) {
+
+				resultMap.put(rs.getString(1), rs.getString(2));
+			}
+
+		} catch (SQLException sqlEx) {
+			log.error("Exception while fetching data: {} ", sqlEx);
 		}
 
 		return resultMap;
+
+	}
+
+	public ResultSet getAssetNamePath(String palId, Connection conn) {
+
+		ResultSet rs = null;
+		
+		String assetNamePath = "select "
+				+ "		assetPath "
+				+ " from"
+				+ "		LUMILEDS_MIGRATION_PAL_ASSET_TAXONOMY "
+				+ " where "
+				+ "		id = ? ";
+
+		PreparedStatement assetNamePathSelectStatement;
+
+		try {
+
+			assetNamePathSelectStatement = conn.prepareStatement(assetNamePath);
+
+			assetNamePathSelectStatement.setString(1,palId);
+
+			rs = assetNamePathSelectStatement.executeQuery();
+
+		} catch (SQLException sqlEx) {
+			log.error("Exception while fetching assetPath: {} ", sqlEx);
+		}
+
+		return rs;
 
 	}
 

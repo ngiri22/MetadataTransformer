@@ -1,5 +1,6 @@
 package com.nttdata.lumileds.opentext.transformer;
 
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 
@@ -52,15 +53,8 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			HashMap<String,String> palMetadataMap = sQLRepository.getAssetMetadata
 					(assetPALId[0], context.getJDBCConnection());
-			
+
 			MetadataRepository metadataRepository = new MetadataRepository();
-
-			for ( MetadataTableField processedMediaTabularField : 
-				metadataRepository.processMediaTabularField(palMetadataMap) )
-			{
-				assetMetadata.replaceElement(processedMediaTabularField, true);
-
-			}
 
 			for (MetadataField scalarField : 
 				metadataRepository.processScalarFields(palMetadataMap) ) {
@@ -69,12 +63,39 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			}
 
-			for (MetadataTableField processedTableField : 
-				metadataRepository.processUsageRightsTable(palMetadataMap)) {
-
-				assetMetadata.replaceElement(processedTableField, true);
+			for ( MetadataTableField processedMediaTabularField : 
+				metadataRepository.processMediaTabularField(palMetadataMap) )
+			{
+				assetMetadata.replaceElement(processedMediaTabularField, true);
 
 			}
+
+			for (MetadataTableField processedRightsTableField : 
+				metadataRepository.processUsageRightsTable(palMetadataMap) ) {
+
+				assetMetadata.replaceElement(processedRightsTableField, true);
+
+			}
+
+
+			for ( MetadataTableField processedFileTableField : 
+				metadataRepository.processFileTabularFields(palMetadataMap) )
+			{
+				assetMetadata.replaceElement(processedFileTableField, true);
+
+			}
+
+
+			//Get AssetType
+			
+			ResultSet assetNamePathSet = sQLRepository.getAssetNamePath
+					(assetPALId[0], context.getJDBCConnection());
+
+			if ( null != assetNamePathSet) {
+
+				assetMetadata.replaceElement(metadataRepository.getAssetType(assetNamePathSet), true);
+			}
+
 
 			asset.setMetadata(assetMetadata);
 
@@ -83,5 +104,5 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 	}
 
-	
+
 }
