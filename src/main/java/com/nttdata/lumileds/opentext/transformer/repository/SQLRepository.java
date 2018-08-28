@@ -60,7 +60,7 @@ public class SQLRepository {
 		ResultSet rs = null;
 		
 		String assetNamePath = "select "
-				+ "		assetPath "
+				+ "		NAMEPATH "
 				+ " from"
 				+ "		LUMILEDS_MIGRATION_PAL_ASSET_TAXONOMY "
 				+ " where "

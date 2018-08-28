@@ -88,6 +88,7 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			//Get AssetType
 			
+			/*
 			ResultSet assetNamePathSet = sQLRepository.getAssetNamePath
 					(assetPALId[0], context.getJDBCConnection());
 
@@ -95,6 +96,7 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 				assetMetadata.replaceElement(metadataRepository.getAssetType(assetNamePathSet), true);
 			}
+			*/
 
 
 			asset.setMetadata(assetMetadata);

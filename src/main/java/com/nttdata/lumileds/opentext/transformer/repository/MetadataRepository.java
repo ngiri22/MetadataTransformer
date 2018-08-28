@@ -4,14 +4,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.artesia.entity.TeamsIdentifier;
-import com.artesia.metadata.CascadingDomainValue;
-import com.artesia.metadata.DomainValue;
 import com.artesia.metadata.MetadataElement;
 import com.artesia.metadata.MetadataField;
 import com.artesia.metadata.MetadataTableField;
@@ -95,6 +92,8 @@ public class MetadataRepository {
 			else {
 
 				for ( String region :  regionValues.split(MetadataConstants.COMMA)) {
+					
+					region = region.trim();
 
 					if ( region.equals("APR") ) {
 						region = "APAC";

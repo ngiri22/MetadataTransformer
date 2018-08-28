@@ -20,13 +20,14 @@ public class MetadataConstants {
 	public static final String REGION_FIELD = "REGIONS";
 	public static final String COUNTRIES_FIELD = "COUNTRIES";
 
-	public static MetadataValue[] REGION_VALUES = {
-			new MetadataValue("EMEA"),
-			new MetadataValue("APAC"),
-			new MetadataValue("Greater China"),
-			new MetadataValue("LATAM"),
-			new MetadataValue("NAFTA")
-	};
+	public static MetadataValue[] REGION_VALUES = 
+		{
+				new MetadataValue("EMEA"),
+				new MetadataValue("APAC"),
+				new MetadataValue("Greater China"),
+				new MetadataValue("LATAM"),
+				new MetadataValue("NAFTA")
+		};
 
 
 	public static final String[] SCALAR_FIELDS = 
@@ -50,7 +51,7 @@ public class MetadataConstants {
 				"COPYRIGHT_START_DATE",
 				"COPYRIGHT_END_DATE"
 		};
-	
+
 	public static final String[] FILE_INFO_TAB_FIELDS = 
 		{
 				"DEACTIVATION_DATE",
@@ -83,7 +84,7 @@ public class MetadataConstants {
 
 	public static final HashMap<String, String> ISO_LANGUAGES_MAP = new HashMap<String, String>();
 
-	
+
 	static {
 		ISO_LANGUAGES_MAP.put("Chinese (Simplified)","chi");
 		ISO_LANGUAGES_MAP.put("Chinese (Taiwan)","chi");
