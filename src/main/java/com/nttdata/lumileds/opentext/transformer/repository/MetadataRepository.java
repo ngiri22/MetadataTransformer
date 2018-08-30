@@ -172,12 +172,12 @@ public class MetadataRepository {
 				fileInfoTableField.addValue(metadataValue);
 
 			}
-			else if ( fileTabularFieldId.equals(MetadataConstants.FILE_INFO_TAB_FIELDS[2]) ) {
-
-				log.debug("Processing Creator Owner Group: " + fileTabularFieldId );
-
-				fileInfoTableField.addValue(new MetadataValue("Agency^SGS"));
-			}
+//			else if ( fileTabularFieldId.equals(MetadataConstants.FILE_INFO_TAB_FIELDS[2]) ) {
+//
+//				log.debug("Processing Creator Owner Group: " + fileTabularFieldId );
+//
+//				fileInfoTableField.addValue(new MetadataValue("Agency^SGS"));
+//			}
 
 			fileTabularFields.add(fileInfoTableField);
 

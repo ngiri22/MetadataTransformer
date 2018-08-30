@@ -55,8 +55,7 @@ public class MetadataConstants {
 	public static final String[] FILE_INFO_TAB_FIELDS = 
 		{
 				"DEACTIVATION_DATE",
-				"ACTIVATION_DATE",
-				"CREATOR_OWNER_GROUP"
+				"ACTIVATION_DATE"
 		};
 
 	public static final TeamsIdentifier[] FIELD_IDS = 
@@ -78,8 +77,7 @@ public class MetadataConstants {
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[4]),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[5]),
 				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[0]),
-				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[1]),
-				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[2])
+				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[1])
 		};
 
 	public static final HashMap<String, String> ISO_LANGUAGES_MAP = new HashMap<String, String>();

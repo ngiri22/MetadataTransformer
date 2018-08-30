@@ -32,53 +32,59 @@ INSERT INTO LUM_MD_BRAND_LU (ID, VALUE, DESCRIPTION) values
 ('Lumileds','Lumileds',''),
 ('NARVA','NARVA',''),
 ('OES','OES',''),
-('Philips','Philips','');
+('Philips','Philips',''),
+('Independent','Independent');
 
 /*
 Languages
 */
 INSERT INTO LUM_MD_LANGUAGES_LU (ID, VALUE, DESCRIPTION) values
-('ara','ara',''),
-('bas','bas',''),
-('fr_ca','fr_ca',''),
-('cze','cze',''),
-('dan','dan',''),
-('nld','nld',''),
-('en','en',''),
-('spa','spa',''),
-('fre','fre',''),
-('ger','ger',''),
-('hun','hun',''),
-('ita','ita',''),
-('jpn','jpn',''),
-('kor','kor',''),
-('nno','nno',''),
-('pol','pol',''),
-('por','por',''),
-('pt_br','pt_br',''),
-('ron','ron',''),
-('rus','rus',''),
-('zho','zho',''),
-('es_ar','es_ar',''),
-('es_mx','es_mx',''),
-('fin','fin',''),
-('swe','swe',''),
-('tha','tha',''),
-('zh_tw','zh_tw',''),
-('tur','tur',''),
-('en_us','en_us',''),
-('vie','vie',''),
-('bul','bul','');
-/*
- Region
-*/
+('ara','Arabic',''),
+('bas','Basa',''),
+('bul','Bulgarian',''),
+('chi','Chinese',''),
+('cze','Czech',''),
+('dan','Danish',''),
+('en','English',''),
+('en_us','English (United States)',''),
+('es_ar','Spanish (Argentina)',''),
+('es_mx','Spanish (Mexico)',''),
+('fin','Finnish',''),
+('fr_ca','Canadian (French)',''),
+('fre','French',''),
+('ger','German',''),
+('hun','Hungarian',''),
+('ita','Italian',''),
+('jpn','Japanese',''),
+('kor','Korean',''),
+('nld','Dutch',''),
+('nor','Norwegian',''),
+('pol','Polish',''),
+('por','Portuguese',''),
+('pt_br','Portuguese (Brazil)',''),
+('ron','Romanian',''),
+('rus','Russian',''),
+('spa','Spanish',''),
+('swe','Swedish',''),
+('tha','Thai',''),
+('tur','Turkish',''),
+('vie','Vietnamese',''),
+('zh_tw','Chinese (Traditional)',''),
+('zho','Chinese (Simplified)','');
+
+/**
+*
+  Region
+*
+**/
+
 INSERT INTO LUM_MD_REGIONS_LU (ID, VALUE, DESCRIPTION) values
 ('EMEA','EMEA',''),
 ('APAC','APAC',''),
 ('Greater China','Greater China',''),
 ('LATAM','LATAM',''),
-('NAFTA','NAFTA','');
-
+('NAFTA','NAFTA',''),
+('Independent','Independent','');
 /*
  Creator Owner Group
 */
