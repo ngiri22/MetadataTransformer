@@ -1,6 +1,5 @@
 package com.nttdata.lumileds.opentext.transformer;
 
-import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 
@@ -41,6 +40,7 @@ public class MetadataTransformer implements AssetImportInterceptor {
 							session
 							);
 
+			
 			SQLRepository sQLRepository = new SQLRepository(); 
 
 			String assetNameWithExtension = asset.getName();

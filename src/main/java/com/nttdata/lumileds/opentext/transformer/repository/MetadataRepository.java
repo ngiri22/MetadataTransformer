@@ -129,6 +129,7 @@ public class MetadataRepository {
 			MetadataField metadataField = new MetadataField(new TeamsIdentifier(scalarField));
 
 
+			//Languages field
 			if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[0])) {
 
 				String isoLanguagesCode = MetadataConstants.ISO_LANGUAGES_MAP.get(palMetadataValue);
@@ -136,6 +137,10 @@ public class MetadataRepository {
 				log.debug("ISO Language code: " + isoLanguagesCode);
 
 				metadataField.setValue(isoLanguagesCode);
+			}
+			//Asset Type field
+			else if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[8])) {
+				metadataField.setValue("Packaging Picture");
 			}
 			else {
 

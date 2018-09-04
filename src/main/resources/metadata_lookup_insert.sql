@@ -13,7 +13,7 @@ INSERT INTO LUM_MD_ASSET_TYPE_LU (ID, VALUE, DESCRIPTION) values
 ('Lifestyle Picture','Lifestyle Picture',''),
 ('Lifestyle Video','Lifestyle Video',''),
 ('Logo','Logo',''),
-('Packaging Picutre','Packaging Picture',''),
+('Packaging Picture','Packaging Picture',''),
 ('POS','POS',''),
 ('Press Release/Whitepaper/Ministorie','Press Release/Whitepaper/Ministorie',''),
 ('Product Feature Video','Product Feature Video',''),
@@ -1228,7 +1228,4 @@ Mapper
 ('Asset_Date_Activation','ACTIVATION_DATE'),
 ('Asset_Date_Deactivation','DEACTIVATION_DATE'),
 ('Asset_Creator_Owner_Email','LUM.FIELD.LEGACY_OWNER_EMAIL'),
-('Asset_DM_Asset_Owner','LUM.FIELD.CONTENT_EDITOR'),
-
-
-
+('Asset_DM_Asset_Owner','LUM.FIELD.CONTENT_EDITOR')

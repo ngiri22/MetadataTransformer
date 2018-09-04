@@ -39,7 +39,8 @@ public class MetadataConstants {
 				"LUM.FIELD.KEYWORDS",  
 				"LUM.FIELD.MASTER_FILE_NAME",
 				"LUM.FIELD.CONTENT_EDITOR",
-				"LUM.FIELD.LEGACY_OWNER_EMAIL"
+				"LUM.FIELD.LEGACY_OWNER_EMAIL",
+				"LUM.FIELD.ASSET_TYPE"
 		};
 
 	public static final String[] USAGE_RIGHTS_FIELDS = 
@@ -68,6 +69,7 @@ public class MetadataConstants {
 				new TeamsIdentifier(SCALAR_FIELDS[5]),
 				new TeamsIdentifier(SCALAR_FIELDS[6]),
 				new TeamsIdentifier(SCALAR_FIELDS[7]),
+				new TeamsIdentifier(SCALAR_FIELDS[8]),
 				new TeamsIdentifier(REGION_FIELD),
 				new TeamsIdentifier(COUNTRIES_FIELD),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[0]),
