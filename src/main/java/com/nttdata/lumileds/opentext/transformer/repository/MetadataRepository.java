@@ -75,9 +75,9 @@ public class MetadataRepository {
 
 		String countriesValues = palMetadataMap.get(MetadataConstants.COUNTRIES_FIELD);
 
-		if ( null != regionValues ) {
+		//if ( null != regionValues ) {
 
-			if ( regionValues.contains(MetadataConstants.ALL_STRING) ) {
+			if ( null == regionValues || regionValues.contains(MetadataConstants.ALL_STRING) ) {
 
 				for (MetadataValue regionField : MetadataConstants.REGION_VALUES ) {
 
@@ -105,7 +105,7 @@ public class MetadataRepository {
 					countriesTableField.addValue(countriesValues);
 				}
 
-			}
+			//}
 		}
 
 		MetadataTableField[] mediaTabularFields = {regionTableField, countriesTableField};
