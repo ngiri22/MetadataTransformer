@@ -7,7 +7,7 @@ public class DBConstants {
 	public static final String DB_USER = "otmm_devdba";
 	public static final String DB_PASSWORD = "@ttmDevDBA01";
 	public static final String PRODUCT_STRING = "Packaging Image";
-	public static final String PCC_FOLDER = "G:\\PAL-Assets\\PCC";
-	public static final String MARCOM_FOLDER = "G:\\PAL-Assets\\MARCOM";
+//	public static final String PCC_FOLDER = "G:\\PAL-Assets\\PCC";
+//	public static final String MARCOM_FOLDER = "G:\\PAL-Assets\\MARCOM";
 
 }

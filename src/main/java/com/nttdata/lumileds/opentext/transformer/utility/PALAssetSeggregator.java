@@ -13,11 +13,16 @@ public class PALAssetSeggregator {
 	public static void main(String[] args) {
 
 		final File inputFolder = new File(args[0]);
+		
+		final String pccFolder = args[1];
+		
+		final String marcomFolder = args[2];
 
-		seggragateAssets(inputFolder);
+		seggragateAssets(inputFolder, pccFolder, marcomFolder);
 	}
 
-	private static void seggragateAssets(File inputFolder) {
+	private static void seggragateAssets(File inputFolder,
+			String pccFolderLocation, String marcomFolderLocation) {
 
 		SQLDirectRepository sqlRepository = new SQLDirectRepository();
 
@@ -43,7 +48,7 @@ public class PALAssetSeggregator {
 
 					Files.copy(
 							fileEntry.toPath() , 
-							new File(DBConstants.PCC_FOLDER + "/" + fileName).toPath() ,
+							new File(pccFolderLocation + "/" + fileName).toPath() ,
 							StandardCopyOption.REPLACE_EXISTING
 							);
 
@@ -55,7 +60,7 @@ public class PALAssetSeggregator {
 
 					Files.copy(
 							fileEntry.toPath() , 
-							new File(DBConstants.MARCOM_FOLDER + "/" + fileName).toPath() ,
+							new File(marcomFolderLocation + "/" + fileName).toPath() ,
 							StandardCopyOption.REPLACE_EXISTING
 							);
 					

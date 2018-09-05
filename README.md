@@ -7,3 +7,10 @@
 - Restart the OTMM application.
 
 Any asset imported into OTMM would be now applied with the extra metadata properties from PAL Metadata.
+
+# Assets Seggregator
+
+- Seggregated assets from an input folder into PCC and MARCOM folders.
+- Call the below java command.
+java -cp sqljdbc42.jar;MetadataTransformer.jar com.nttdata.lumileds.opentext.transformer.utility.PALAssetSeggregator "<INPUT_FOLDER>" "<PCC_FOLDER>" "<MARCOM_FOLDER>"
+- This command will read from input folder and seggregate the assets into PCC and MARCOM Folders.
