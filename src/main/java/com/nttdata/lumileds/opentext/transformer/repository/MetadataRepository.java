@@ -138,10 +138,6 @@ public class MetadataRepository {
 
 				metadataField.setValue(isoLanguagesCode);
 			}
-			//Asset Type field
-			else if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[8])) {
-				metadataField.setValue("Packaging Picture");
-			}
 			else {
 
 				metadataField.setValue(palMetadataValue);

@@ -10,7 +10,14 @@ Any asset imported into OTMM would be now applied with the extra metadata proper
 
 # Assets Seggregator
 
-- Seggregated assets from an input folder into PCC and MARCOM folders.
+- Seggregates assets from an input/SOURCE folder into PCC, ADDITIONAL, 3D, PLANOGRAM and MARCOM folders.
 - Call the below java command.
-java -cp sqljdbc42.jar;MetadataTransformer.jar com.nttdata.lumileds.opentext.transformer.utility.PALAssetSeggregator "<INPUT_FOLDER>" "<PCC_FOLDER>" "<MARCOM_FOLDER>"
-- This command will read from input folder and seggregate the assets into PCC and MARCOM Folders.
+- Create following folders inside a base folder:
+	- SOURCE (Will have source assets)
+	- PCC (pcc assets will be copied here).
+	- 3D
+	- PLANOGRAM
+	- ADDITIONAL
+	- MARCOM
+java -cp sqljdbc42.jar;MetadataTransformer.jar com.nttdata.lumileds.opentext.transformer.utility.PALAssetSeggregator "<BASE_FOLDER>"
+- This command will read from input folder and seggregate the assets into the different folders based on the Asset Taxonomy.

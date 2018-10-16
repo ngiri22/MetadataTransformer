@@ -33,7 +33,7 @@ INSERT INTO LUM_MD_BRAND_LU (ID, VALUE, DESCRIPTION) values
 ('NARVA','NARVA',''),
 ('OES','OES',''),
 ('Philips','Philips',''),
-('Independent','Independent');
+('Independent','Independent','');
 
 /*
 Languages
@@ -214,11 +214,11 @@ INSERT INTO LUM_MD_TYPE_TEST_LU (ID, VALUE, DESCRIPTION) values
 PPAP LEVEL
 */
 INSERT INTO LUM_MD_PPAP_LEVEL_LU (ID, VALUE, DESCRIPTION) values
-('Level 1','Level 1',''),
-('Level 2','Level 2',''),
-('Level 3','Level 3',''),
-('Level 4','Level 4',''),
-('Level 5','Level 5','');
+('1','1',''),
+('2','2',''),
+('3','3',''),
+('4','4',''),
+('5','5','');
 
 /*
  Packaging Cluster - CASCADING
@@ -288,6 +288,8 @@ INSERT INTO LUM_MD_TEST_TIME_LU2 (ID, VALUE, DESCRIPTION) values
 ('FY','FY',''),
 ('HY1','HY1',''),
 ('HY2','HY2','');
+
+/*fkghdfjkgh*/
 
 INSERT INTO CASCADING_TABLE_INCLUSIONS values ('LUM_MD_TEST_TIME_CAS_MAP');
 
@@ -1206,17 +1208,17 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 ('ZIZALA^ZKW Slovakia s.r.o.','ZIZALA','ZKW Slovakia s.r.o.');
 
 /*
-Mapper
+OTMM Mapper
 */
+
+INSERT INTO LUMILEDS_MIGRATION_PAL_OTMM_MAPPING values
 ('Asset_Countries','LUM.FIELD.COUNTRIES'),
-('Asset_Type_Product','LUM.FIELD.ASSET_TYPE'), --/*
 ('Asset_Brand','LUM.FIELD.BRAND'),
 ('Asset_Subject_Keywords','LUM.FIELD.KEYWORDS'),
 ('Asset_Languages','LUM.FIELD.LANGUAGES'),
 ('MasterFileName','LUM.FIELD.MASTER_FILE_NAME'),
 ('Asset_Media_Title','LUM.FIELD.MEDIA_TITLE'),
 ('Asset_Description','LUM.FIELD.DESCRIPTION'),
-
 ('Asset_Rights_Copyright_Date_Start','COPYRIGHT_START_DATE'),
 ('Asset_Rights_Copyright_Date_End','COPYRIGHT_END_DATE'),
 ('Asset_Rights_Copyright_Geolocation','COPYRIGHT_GEO_LOCATION'),
@@ -1228,4 +1230,46 @@ Mapper
 ('Asset_Date_Activation','ACTIVATION_DATE'),
 ('Asset_Date_Deactivation','DEACTIVATION_DATE'),
 ('Asset_Creator_Owner_Email','LUM.FIELD.LEGACY_OWNER_EMAIL'),
-('Asset_DM_Asset_Owner','LUM.FIELD.CONTENT_EDITOR')
+('Asset_DM_Asset_Owner','LUM.FIELD.CONTENT_EDITOR');
+
+INSERT INTO LUMILEDS_MIGRATION_PAL_ASSET_TYPE_MAPPING values
+('/Assets/PhilipsAssetType/ATL/Print/Brochure','Catalog'),
+('/Assets/PhilipsAssetType/ATL/Print/Catalogue','Catalog'),
+('/Assets/PhilipsAssetType/Audio and Video/Video/Inspirational','Lifestyle Video'),
+('/Assets/PhilipsAssetType/Audio and Video/Video/Installation','Tutorial Video'),
+('/Assets/PhilipsAssetType/Audio and Video/Video/Tutorial','Tutorial Video'),
+('/Assets/PhilipsAssetType/BTL/POS/On Product Materials','POS'),
+('/Assets/PhilipsAssetType/Case Study/Case Study Online','Press Release/whitepaper/ministorie'),
+('/Assets/PhilipsAssetType/Case Study/Images','Product in Use'),
+('/Assets/PhilipsAssetType/Case Study/Images/Key Visual','Lifestyle Picture'),
+('/Assets/PhilipsAssetType/Corporate/Icon-Graphic','Icon'),
+('/Assets/PhilipsAssetType/Corporate/Logo','Logo'),
+('/Assets/PhilipsAssetType/Feature/Image','Glossary Feature'),
+('/Assets/PhilipsAssetType/PR','Press Release/whitepaper/ministorie'),
+('/Assets/PhilipsAssetType/Philips Product Library/Emotional Benefit Photo','Lifestyle Picture'),
+('/Assets/PhilipsAssetType/Philips Product Library/Feature image','Lifestyle Picture'),
+('/Assets/PhilipsAssetType/Philips Product Library/Feature movie','Product Feature Video'),
+('/Assets/PhilipsAssetType/Philips Product Library/Feature video','Product Feature Video'),
+('/Assets/PhilipsAssetType/Philips Product Library/Main in use photo','Product in Use'),
+('/Assets/PhilipsAssetType/Philips Product Library/Packaging photograph','Packaging Picture'),
+('/Assets/PhilipsAssetType/Philips Product Library/Product 3D','Product Picture'),
+('/Assets/PhilipsAssetType/Philips Product Library/Product In Use Photo','Product in Use'),
+('/Assets/PhilipsAssetType/Philips Product Library/Product Video','Product Feature Video'),
+('/Assets/PhilipsAssetType/Philips Product Library/System Logo','Icon'),
+('/Assets/PhilipsAssetType/Product/Packaging/Packaging Design','Packaging Picture'),
+('/Assets/PhilipsAssetType/Product','Product Picture'),
+('/Assets/PhilipsAssetType/Product/Image','Product Picture'),
+('/Assets/PhilipsAssetType/Product/Packaging','Packaging Picture'),
+('/Assets/PhilipsAssetType/Product/Product images','Product Picture'),
+('/Assets/PhilipsAssetType/Product/Product images/3D','Product Picture'),
+('/Assets/PhilipsAssetType/Product/Product images/Additional Product Picture','Product Picture'),
+('/Assets/PhilipsAssetType/Product/Product images/Detail Photo','Product Picture'),
+('/Assets/PhilipsAssetType/Product/Product images/Lifestyle Image','Lifestyle Picture'),
+('/Assets/PhilipsAssetType/Product/Product images/Packaging Image','Packaging Picture'),
+('/Assets/PhilipsAssetType/Product/Product images/Planogram Image','POS'),
+('/Assets/PhilipsAssetType/Product/Product images/Product Stand Alone Photo','Product Picture'),
+('/Assets/PhilipsAssetType/Product/Product videos/Product movie','Product Feature Video'),
+('/Assets/PhilipsAssetType/Document','Web Banner'),
+('/Assets/PhilipsAssetType/Online/Website','Web Banner'),
+('/Assets/PhilipsAssetType/PR/Advertorial','Web Banner'),
+('/Assets/PhilipsAssetType/Philips Product Library/Product with stand photo','Web Banner');

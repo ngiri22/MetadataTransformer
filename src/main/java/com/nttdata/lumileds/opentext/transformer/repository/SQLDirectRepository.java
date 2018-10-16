@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.nttdata.lumileds.opentext.transformer.utility.DBConstants;
+import com.nttdata.lumileds.opentext.transformer.utility.SeggregatorConstants;
 
 public class SQLDirectRepository {
 
@@ -22,13 +22,13 @@ public class SQLDirectRepository {
 		
 		try {
 			
-			Class.forName(DBConstants.DB_DRIVER).newInstance();
+			Class.forName(SeggregatorConstants.DB_DRIVER).newInstance();
 
 			conn = DriverManager.getConnection
 					(
-						DBConstants.DB_URL,
-						DBConstants.DB_USER,
-						DBConstants.DB_PASSWORD
+						SeggregatorConstants.DB_URL,
+						SeggregatorConstants.DB_USER,
+						SeggregatorConstants.DB_PASSWORD
 					);
 
 			if (null != conn) {
@@ -52,44 +52,67 @@ public class SQLDirectRepository {
 
 	}
 
-	public boolean isProductImage(String palId, Connection conn) {
+	public String getNamePath(String palId, Connection conn) {
 
 		String assetTaxonomy = "select " + 
-				" 1 " + 
+				"	 namepath " + 
 				" from " + 
-				" LUMILEDS_MIGRATION_PAL_ASSET_TAXONOMY " + 
+				" 	LUMILEDS_MIGRATION_PAL_ASSET_TAXONOMY " + 
 				" where " +
-				" NAMEPATH like '%" + 
-				DBConstants.PRODUCT_STRING +
-				"%' and " +
-				" ID = ? ";
+				" 	NAMEPATH like ? and " + 
+				" 	ID = ? ";
 
 		PreparedStatement assetTaxonomyStatement;
-
+		
 		try {
 
 			assetTaxonomyStatement = conn.prepareStatement(assetTaxonomy);
 
-			assetTaxonomyStatement.setString(1, palId);
+			assetTaxonomyStatement.setString(1, SeggregatorConstants.PRODUCT_QUERY_INITIAL_TERM);
+			assetTaxonomyStatement.setString(2, palId);
 
 			ResultSet rs = assetTaxonomyStatement.executeQuery();
 			
-			if ( rs.next() ) {
-				
-				return true;
+			while ( rs.next() ) {
+				return rs.getString(1);
 			}
-			else {
-				return false;
-			}
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		finally {
 
-
-
+		return null ;
+	}
+	
+	public Boolean checkALLORAPRRegions(String palId, Connection conn) {
+		
+		String checkRegion = " Select 1 from " +
+				" lumileds_migration_pal_asset_metadata "
+				+ " where "
+				+ " ID = ? and "
+				+ " NAME = ? and "
+				+ " ( FIELD LIKE ? OR FIELD = ? )";
+		
+		PreparedStatement checkRegionStatement;
+		
+		try {
+			checkRegionStatement = conn.prepareStatement(checkRegion);
+			
+			checkRegionStatement.setString(1, palId);
+			checkRegionStatement.setString(2, SeggregatorConstants.AUTOMOTIVE_REGION);
+			checkRegionStatement.setString(3, SeggregatorConstants.ALL_STRING);
+			checkRegionStatement.setString(4, SeggregatorConstants.APR_STRING);
+			
+			if ( checkRegionStatement.executeQuery().next()) {
+			
+				return true;
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		
 		return false;
 	}
 
@@ -102,5 +125,7 @@ public class SQLDirectRepository {
 			sqlEx.printStackTrace();
 		}
 	}
+
+	
 
 }

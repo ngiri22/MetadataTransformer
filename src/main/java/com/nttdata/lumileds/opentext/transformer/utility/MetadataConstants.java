@@ -111,5 +111,43 @@ public class MetadataConstants {
 		ISO_LANGUAGES_MAP.put("Swedish","swe");
 
 	}
+	
+	public static final HashMap<String, String> ASSET_TYPE_MAP = new HashMap<String, String>();
+
+	static {
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/ATL/Print/Brochure", "Catalog");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/ATL/Print/Catalogue", "Catalog");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Audio and Video/Video/Inspirational", "Lifestyle Video");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Audio and Video/Video/Installation", "Tutorial Video");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Audio and Video/Video/Tutorial", "Tutorial Video");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/BTL/POS/On Product Materials", "POS");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Case Study/Case Study Online", "Press releases/whitepapers/ministories");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Case Study/Images","Product in use");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Case Study/Images/Key Visual","Lifestyle picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Corporate/Icon-Graphic","Icons");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Corporate/Logo","Logos");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Feature/Image","Glossary feature");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/PR","Press releases/whitepapers/ministories");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Emotional Benefit Photo","Lifestyle picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Feature image","Lifestyle picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Feature movie","Product feature video");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Feature video","Product feature video");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Main in use photo","Product in use");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Packaging photograph","Packaging picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Product 3D","Product picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Product In Use Photo","Product in use");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Product Video","Product feature video");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/System Logo","Icons");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Packaging/Packaging Design","Packaging picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Image","Product picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Product images/3D","Product picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Product images/Additional Product Picture","Product picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Product images/Detail Photo","Product picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Product images/Lifestyle Image","Lifestyle picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Product images/Packaging Image","Packaging picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Product images/Planogram Image","POS");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Product images/Product Stand Alone Photo","Product picture");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Product videos/Product movie","Product feature video");
+	}
 
 }

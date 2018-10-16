@@ -9,6 +9,8 @@ import java.util.HashMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.nttdata.lumileds.opentext.transformer.utility.SeggregatorConstants;
+
 public class SQLRepository {
 
 	private static final Log log = LogFactory.getLog(SQLRepository.class);
@@ -82,6 +84,45 @@ public class SQLRepository {
 
 		return rs;
 
+	}
+
+	public String getAssetType(String palId, Connection conn) {
+		
+		ResultSet rs = null;
+
+		
+		String assetType = "select a.asset_type ASSET_TYPE " + 
+				" FROM " + 
+				"	LUMILEDS_MIGRATION_PAL_ASSET_TYPE_MAPPING a, " + 
+				"	LUMILEDS_MIGRATION_PAL_ASSET_TAXONOMY b " + 
+				" where " + 
+				"	b.ID = ? and " + 
+				"	a.NAMEPATH = b.NAMEPATH and " + 
+				"	a.namepath like ? ";
+		
+		PreparedStatement assetTypeSelectStatement ;
+		
+		try {
+			
+			assetTypeSelectStatement = conn.prepareStatement(assetType);
+			
+			assetTypeSelectStatement.setString(1, palId);
+			assetTypeSelectStatement.setString(2, SeggregatorConstants.PRODUCT_QUERY_INITIAL_TERM);
+			
+			rs = assetTypeSelectStatement.executeQuery();
+			
+			if ( rs.next()) {
+				
+				return rs.getString(1);
+				
+			}
+			
+			
+		} catch (SQLException sqlEx) {
+			log.error("Exception while fetching assettype: {} ", sqlEx);
+		}
+		
+		return "NO_MATCH";
 	}
 
 }

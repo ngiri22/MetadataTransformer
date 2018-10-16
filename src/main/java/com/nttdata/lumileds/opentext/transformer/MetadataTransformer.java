@@ -40,7 +40,6 @@ public class MetadataTransformer implements AssetImportInterceptor {
 							session
 							);
 
-			
 			SQLRepository sQLRepository = new SQLRepository(); 
 
 			String assetNameWithExtension = asset.getName();
@@ -53,7 +52,12 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			HashMap<String,String> palMetadataMap = sQLRepository.getAssetMetadata
 					(assetPALId[0], context.getJDBCConnection());
-
+			
+			String assetType = sQLRepository.getAssetType(assetPALId[0],
+					context.getJDBCConnection());
+			
+			palMetadataMap.put(MetadataConstants.SCALAR_FIELDS[8], assetType);
+			
 			MetadataRepository metadataRepository = new MetadataRepository();
 
 			for (MetadataField scalarField : 
