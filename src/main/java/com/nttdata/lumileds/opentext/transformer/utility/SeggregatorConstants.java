@@ -13,18 +13,18 @@ public class SeggregatorConstants {
 
 	public static final String SOURCE_FOLDER = "SOURCE";
 
-	public static final String AM_UNDEFINED_FOLDER = "AM/Undefined";
+	public static final String AM_UNDEFINED_FOLDER = "AM/Unidentified";
 	public static final String PCC_FOLDER = "AM/PCC";
-	public static final String BRAND_ELEMENTS_FOLDER = "Corporate/Brand Elements";
+	public static final String BRAND_ELEMENTS_FOLDER = "Corporate/Brand Element";
 	public static final String MARCOM_FOLDER = "AM/MARCOM";
 	public static final String AUTOMOTIVE_REGION = "Asset_Automotive_Region";
 	public static final String ALL_STRING = "%All%";
 	public static final String APR_STRING = "APR";
-	public static final String REGIONAL_SPECIFICATION = "Regional Specification";
+	public static final String REGIONAL_IDENTIFICATION = "Regional Identification";
 
 	public static final String PRODUCT_QUERY_INITIAL_TERM = "/Assets/PhilipsAssetType/%";
 
-	public static final List<String> amUndefinedList = 
+	public static final List<String> amUnidentifiedList = 
 			Arrays.asList(
 					"/Assets/PhilipsAssetType/DataMigrationUnknown", 
 					"/Assets/PhilipsAssetType/Document",
@@ -71,7 +71,11 @@ public class SeggregatorConstants {
 					"/Assets/PhilipsAssetType/Product/Product images/Detail Photo",
 					"/Assets/PhilipsAssetType/Product/Product images/Lifestyle Image",
 					"/Assets/PhilipsAssetType/Product/Product images/Product Stand Alone Photo",
-					"/Assets/PhilipsAssetType/Product/Product videos/Product movie"
+					"/Assets/PhilipsAssetType/Product/Product videos/Product movie",
+					"/Assets/PhilipsAssetType/Audio and Video",
+					"/Assets/PhilipsAssetType/Audio and Video/Video",
+					"/Assets/PhilipsAssetType/Product/Product videos",
+					"/Assets/PhilipsAssetType/Product/Video"
 					);
 
 	public static final List<String> brandElementsList = 

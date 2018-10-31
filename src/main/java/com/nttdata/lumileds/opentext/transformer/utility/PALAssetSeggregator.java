@@ -58,11 +58,11 @@ public class PALAssetSeggregator {
 
 					if (allORAPRRegions) {
 						
-						System.out.println("Going to PCC/Regional Specification folder");
+						System.out.println("Going to PCC/Regional Identification folder");
 
 						destinationPath = baseFolderLocation + "/" + 
 								SeggregatorConstants.PCC_FOLDER + "/" + 
-								SeggregatorConstants.REGIONAL_SPECIFICATION + "/" +
+								SeggregatorConstants.REGIONAL_IDENTIFICATION + "/" +
 								fileName;
 					}
 					else {
@@ -85,12 +85,12 @@ public class PALAssetSeggregator {
 					
 					if (allORAPRRegions) {
 						
-						System.out.println("Going to Marcom/Regional Specification folder");
+						System.out.println("Going to Marcom/Regional Identification folder");
 
 
 						destinationPath = baseFolderLocation + "/" + 
 								SeggregatorConstants.MARCOM_FOLDER + "/" +
-								SeggregatorConstants.REGIONAL_SPECIFICATION + "/" +
+								SeggregatorConstants.REGIONAL_IDENTIFICATION + "/" +
 								fileName;
 					}
 					else {
@@ -112,12 +112,12 @@ public class PALAssetSeggregator {
 
 					if (allORAPRRegions) {
 						
-						System.out.println("Going to Brand Elements/Regional Specification folder");
+						System.out.println("Going to Brand Elements/Regional Identification folder");
 
 
 						destinationPath = baseFolderLocation + "/" + 
 								SeggregatorConstants.BRAND_ELEMENTS_FOLDER + "/" +
-								SeggregatorConstants.REGIONAL_SPECIFICATION + "/" +
+								SeggregatorConstants.REGIONAL_IDENTIFICATION + "/" +
 								fileName;
 					}
 					else {
@@ -133,9 +133,9 @@ public class PALAssetSeggregator {
 							fileEntry.toPath(), destinationPath
 							);
 
-				} else if (SeggregatorConstants.amUndefinedList.contains(namePath)) {
+				} else if (SeggregatorConstants.amUnidentifiedList.contains(namePath)) {
 
-					System.out.println("Going to AM/Undefined folder");
+					System.out.println("Going to AM/Unidentified folder");
 
 					destinationPath = baseFolderLocation + "/" + 
 							SeggregatorConstants.AM_UNDEFINED_FOLDER + "/" +

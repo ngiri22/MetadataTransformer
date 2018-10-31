@@ -36,7 +36,7 @@ public class MetadataConstants {
 				"LUM.FIELD.MEDIA_TITLE",
 				"LUM.FIELD.BRAND",
 				"LUM.FIELD.DESCRIPTION",
-				"LUM.FIELD.KEYWORDS",  
+				"LUM.FIELD.KEYWORDS",
 				"LUM.FIELD.MASTER_FILE_NAME",
 				"LUM.FIELD.CONTENT_EDITOR",
 				"LUM.FIELD.LEGACY_OWNER_EMAIL",
@@ -117,17 +117,19 @@ public class MetadataConstants {
 	static {
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/ATL/Print/Brochure", "Catalog");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/ATL/Print/Catalogue", "Catalog");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Audio and Video", "Lifestyle Video");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Audio and Video/Video", "Lifestyle Video");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Audio and Video/Video/Inspirational", "Lifestyle Video");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Audio and Video/Video/Installation", "Tutorial Video");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Audio and Video/Video/Tutorial", "Tutorial Video");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/BTL/POS/On Product Materials", "POS");
-		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Case Study/Case Study Online", "Press releases/whitepapers/ministories");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Case Study/Case Study Online", "Press Release/Whitepaper/Ministorie");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Case Study/Images","Product in use");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Case Study/Images/Key Visual","Lifestyle picture");
-		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Corporate/Icon-Graphic","Icons");
-		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Corporate/Logo","Logos");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Corporate/Icon-Graphic","Icon");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Corporate/Logo","Logo");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Feature/Image","Glossary feature");
-		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/PR","Press releases/whitepapers/ministories");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/PR","Press Release/Whitepaper/Ministorie");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Emotional Benefit Photo","Lifestyle picture");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Feature image","Lifestyle picture");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Feature movie","Product feature video");

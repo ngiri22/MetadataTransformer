@@ -13,6 +13,7 @@ INSERT INTO LUM_MD_ASSET_TYPE_LU (ID, VALUE, DESCRIPTION) values
 ('Lifestyle Picture','Lifestyle Picture',''),
 ('Lifestyle Video','Lifestyle Video',''),
 ('Logo','Logo',''),
+('Other','Other','',)
 ('Packaging Picture','Packaging Picture',''),
 ('POS','POS',''),
 ('Press Release/Whitepaper/Ministorie','Press Release/Whitepaper/Ministorie',''),
@@ -1225,7 +1226,6 @@ INSERT INTO LUMILEDS_MIGRATION_PAL_OTMM_MAPPING values
 ('Asset_Rights_Copyright_Date_Applicable','COPYRIGHT_VISUAL_APPLICABLE'),
 ('Asset_Music_Rights_Applicable','COPYRIGHT_MUSIC_APPLICABLE');
 ('Asset_Rights_Copyright_Channel','COPYRIGHT_TOUCHPOINTS'),
-
 ('Asset_Automotive_Region','REGIONS'),
 ('Asset_Date_Activation','ACTIVATION_DATE'),
 ('Asset_Date_Deactivation','DEACTIVATION_DATE'),
@@ -1239,13 +1239,13 @@ INSERT INTO LUMILEDS_MIGRATION_PAL_ASSET_TYPE_MAPPING values
 ('/Assets/PhilipsAssetType/Audio and Video/Video/Installation','Tutorial Video'),
 ('/Assets/PhilipsAssetType/Audio and Video/Video/Tutorial','Tutorial Video'),
 ('/Assets/PhilipsAssetType/BTL/POS/On Product Materials','POS'),
-('/Assets/PhilipsAssetType/Case Study/Case Study Online','Press Release/whitepaper/ministorie'),
+('/Assets/PhilipsAssetType/Case Study/Case Study Online','Press Release/Whitepaper/Ministorie'),
 ('/Assets/PhilipsAssetType/Case Study/Images','Product in Use'),
 ('/Assets/PhilipsAssetType/Case Study/Images/Key Visual','Lifestyle Picture'),
 ('/Assets/PhilipsAssetType/Corporate/Icon-Graphic','Icon'),
 ('/Assets/PhilipsAssetType/Corporate/Logo','Logo'),
 ('/Assets/PhilipsAssetType/Feature/Image','Glossary Feature'),
-('/Assets/PhilipsAssetType/PR','Press Release/whitepaper/ministorie'),
+('/Assets/PhilipsAssetType/PR','Press Release/Whitepaper/Ministorie'),
 ('/Assets/PhilipsAssetType/Philips Product Library/Emotional Benefit Photo','Lifestyle Picture'),
 ('/Assets/PhilipsAssetType/Philips Product Library/Feature image','Lifestyle Picture'),
 ('/Assets/PhilipsAssetType/Philips Product Library/Feature movie','Product Feature Video'),
@@ -1272,4 +1272,11 @@ INSERT INTO LUMILEDS_MIGRATION_PAL_ASSET_TYPE_MAPPING values
 ('/Assets/PhilipsAssetType/Document','Web Banner'),
 ('/Assets/PhilipsAssetType/Online/Website','Web Banner'),
 ('/Assets/PhilipsAssetType/PR/Advertorial','Web Banner'),
-('/Assets/PhilipsAssetType/Philips Product Library/Product with stand photo','Web Banner');
+('/Assets/PhilipsAssetType/Philips Product Library/Product with stand photo','Web Banner'),
+
+('/Assets/PhilipsAssetType/Audio and Video','Tutorial Video'),
+('/Assets/PhilipsAssetType/Audio and Video/Video','Tutorial Video'),
+('/Assets/PhilipsAssetType/DataMigrationUnknown','Leaflet'),
+('/Assets/PhilipsAssetType/Online','Web Banner'),
+('/Assets/PhilipsAssetType/Product/Product videos','Product Feature Video'),
+('/Assets/PhilipsAssetType/Product/Video','Product Feature Video');
