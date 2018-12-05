@@ -130,19 +130,19 @@ public class MetadataRepository {
 
 
 			//Languages field
-			if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[0])) {
-
-				String isoLanguagesCode = MetadataConstants.ISO_LANGUAGES_MAP.get(palMetadataValue);
-
-				log.debug("ISO Language code: " + isoLanguagesCode);
-
-				metadataField.setValue(isoLanguagesCode);
-			}
-			else {
+//			if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[0])) {
+//
+//				String isoLanguagesCode = MetadataConstants.ISO_LANGUAGES_MAP.get(palMetadataValue);
+//
+//				log.debug("ISO Language code: " + isoLanguagesCode);
+//
+//				metadataField.setValue(isoLanguagesCode);
+//			}
+//			else {
 
 				metadataField.setValue(palMetadataValue);
 
-			}
+//			}
 
 
 			scalarFields.add(metadataField);
@@ -152,6 +152,24 @@ public class MetadataRepository {
 		}
 
 		return scalarFields;
+	}
+	
+	public MetadataTableField processLanguagesTabularField(String languagesMetaValue) {
+		
+		String isoLanguagesCode = 
+				MetadataConstants.ISO_LANGUAGES_MAP.get(languagesMetaValue);
+
+		log.debug("ISO Language code: " + isoLanguagesCode);
+		
+		MetadataTableField languagesTableField = 
+				new MetadataTableField(
+						new TeamsIdentifier(
+								MetadataConstants.LANGUAGES_FIELD
+								));
+
+		languagesTableField.addValue(isoLanguagesCode);
+		
+		return languagesTableField;
 	}
 
 	public List<MetadataTableField> processFileTabularFields(HashMap<String, String> palMetadataMap) {

@@ -19,6 +19,7 @@ public class MetadataConstants {
 
 	public static final String REGION_FIELD = "REGIONS";
 	public static final String COUNTRIES_FIELD = "COUNTRIES";
+	public static final String LANGUAGES_FIELD = "LANGUAGES";
 
 	public static MetadataValue[] REGION_VALUES = 
 		{
@@ -32,15 +33,15 @@ public class MetadataConstants {
 
 	public static final String[] SCALAR_FIELDS = 
 		{
-				"LUM.FIELD.LANGUAGES",
+				"LUM.FIELD.LEGACY_ASSET_ID",
+				"LUM.FIELD.ASSET_TYPE",
 				"LUM.FIELD.MEDIA_TITLE",
 				"LUM.FIELD.BRAND",
-				"LUM.FIELD.DESCRIPTION",
+				"ARTESIA.FIELD.ASSET DESCRIPTION",
 				"LUM.FIELD.KEYWORDS",
 				"LUM.FIELD.MASTER_FILE_NAME",
-				"LUM.FIELD.CONTENT_EDITOR",
-				"LUM.FIELD.LEGACY_OWNER_EMAIL",
-				"LUM.FIELD.ASSET_TYPE"
+				"LUM.FIELD.CONTENT_EDITOR"
+				
 		};
 
 	public static final String[] USAGE_RIGHTS_FIELDS = 
@@ -69,9 +70,9 @@ public class MetadataConstants {
 				new TeamsIdentifier(SCALAR_FIELDS[5]),
 				new TeamsIdentifier(SCALAR_FIELDS[6]),
 				new TeamsIdentifier(SCALAR_FIELDS[7]),
-				new TeamsIdentifier(SCALAR_FIELDS[8]),
 				new TeamsIdentifier(REGION_FIELD),
 				new TeamsIdentifier(COUNTRIES_FIELD),
+				new TeamsIdentifier(LANGUAGES_FIELD),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[0]),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[1]),
 				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[2]),
@@ -83,7 +84,6 @@ public class MetadataConstants {
 		};
 
 	public static final HashMap<String, String> ISO_LANGUAGES_MAP = new HashMap<String, String>();
-
 
 	static {
 		ISO_LANGUAGES_MAP.put("Chinese (Simplified)","chi");
@@ -99,8 +99,8 @@ public class MetadataConstants {
 		ISO_LANGUAGES_MAP.put("German","ger");
 		ISO_LANGUAGES_MAP.put("Global Language","en");
 		ISO_LANGUAGES_MAP.put("Hungarian","hun");
-		ISO_LANGUAGES_MAP.put("International English","en");
-		ISO_LANGUAGES_MAP.put("International English, Japanese","en");
+		ISO_LANGUAGES_MAP.put("International English","en_us");
+		ISO_LANGUAGES_MAP.put("International English, Japanese","en_us");
 		ISO_LANGUAGES_MAP.put("Italian","ita");
 		ISO_LANGUAGES_MAP.put("Norwegian","nor");
 		ISO_LANGUAGES_MAP.put("Polish","pol");
@@ -139,7 +139,7 @@ public class MetadataConstants {
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Product 3D","Product picture");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Product In Use Photo","Product in use");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/Product Video","Product feature video");
-		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/System Logo","Icons");
+		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Philips Product Library/System Logo","Icon");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Packaging/Packaging Design","Packaging picture");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Image","Product picture");
 		ASSET_TYPE_MAP.put("/Assets/PhilipsAssetType/Product/Product images/3D","Product picture");

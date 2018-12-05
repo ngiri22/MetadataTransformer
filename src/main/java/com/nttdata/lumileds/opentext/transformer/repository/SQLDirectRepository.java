@@ -51,6 +51,34 @@ public class SQLDirectRepository {
 		return conn;
 
 	}
+	
+	public String getFileName(String palId, Connection conn ) {
+	
+		String assetName = "SELECT FILE_NAME FROM "
+				+ "LUMILEDS_MIGRATION_PAL_FILE_NAME_MAPPING "
+				+ " WHERE PAL_ID = ?";
+		
+		PreparedStatement assetNameStatement;
+		
+		try {
+			
+			assetNameStatement = conn.prepareStatement(assetName);
+			
+			assetNameStatement.setString(1, palId);
+			
+			ResultSet rs = assetNameStatement.executeQuery();
+			
+			while (rs.next()) {
+				return rs.getString(1);
+			}
+			
+		}
+		catch (SQLException sqlEx) {
+			sqlEx.printStackTrace();
+		}
+		return null;
+		
+	}
 
 	public String getNamePath(String palId, Connection conn) {
 

@@ -125,4 +125,31 @@ public class SQLRepository {
 		return "NO_MATCH";
 	}
 
+	public String getassetPALId(String assetNameWithExtension, Connection conn) {
+		
+		String assetPALId = "SELECT PAL_ID FROM "
+				+ "LUMILEDS_MIGRATION_PAL_FILE_NAME_MAPPING WHERE "
+				+ "FILE_NAME = ?";
+		
+		PreparedStatement assetPALIdStatement;
+		
+		try {
+			
+			assetPALIdStatement = conn.prepareStatement(assetPALId);
+			
+			assetPALIdStatement.setString(1, assetNameWithExtension);
+			
+			ResultSet rs = assetPALIdStatement.executeQuery();
+			
+			if (rs.next()) {
+				return rs.getString(1);
+			}
+			
+		} catch (SQLException sqlEx) {
+			log.error("Exception while fetching PAL ID: {} ", sqlEx);
+		}
+		
+		return null;
+	}
+
 }

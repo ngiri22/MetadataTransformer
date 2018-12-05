@@ -42,21 +42,25 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			SQLRepository sQLRepository = new SQLRepository(); 
 
-			String assetNameWithExtension = asset.getName();
+			String assetName = asset.getName().split(MetadataConstants.DOT)[0];
+			
+			String assetPALId = sQLRepository.getassetPALId(assetName, context.getJDBCConnection());
+			
+			log.debug("Asset Name with Extension: " + assetName);
 
-			log.debug("Asset Name with Extension: " + assetNameWithExtension);
+			//String[] assetPALId = assetNameWithExtension.split(MetadataConstants.DOT);
+			
 
-			String[] assetPALId = assetNameWithExtension.split(MetadataConstants.DOT);
-
-			log.debug("Asset PAL ID: " + assetPALId[0]);
+			log.debug("Asset PAL ID: " + assetPALId);
 
 			HashMap<String,String> palMetadataMap = sQLRepository.getAssetMetadata
-					(assetPALId[0], context.getJDBCConnection());
+					(assetPALId, context.getJDBCConnection());
 			
-			String assetType = sQLRepository.getAssetType(assetPALId[0],
+			String assetType = sQLRepository.getAssetType(assetPALId,
 					context.getJDBCConnection());
 			
-			palMetadataMap.put(MetadataConstants.SCALAR_FIELDS[8], assetType);
+			palMetadataMap.put(MetadataConstants.SCALAR_FIELDS[0], assetPALId);
+			palMetadataMap.put(MetadataConstants.SCALAR_FIELDS[1], assetType);
 			
 			MetadataRepository metadataRepository = new MetadataRepository();
 
@@ -67,6 +71,13 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			}
 
+
+			//Languages Tabular Field
+			assetMetadata.replaceElement(metadataRepository.
+					processLanguagesTabularField(
+							palMetadataMap.get(
+									MetadataConstants.LANGUAGES_FIELD)), true);
+			
 			for ( MetadataTableField processedMediaTabularField : 
 				metadataRepository.processMediaTabularField(palMetadataMap) )
 			{

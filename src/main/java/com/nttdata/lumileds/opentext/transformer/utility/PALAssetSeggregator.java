@@ -14,9 +14,32 @@ public class PALAssetSeggregator {
 	public static void main(String[] args) {
 
 		final String baseFolderLocation = args[0];
+		
+//		String baseFolderLocation = "hello.one   	two\\three/four";
+//		
+//		baseFolderLocation = baseFolderLocation.replaceAll("\\.", "_");
+//		
+//		System.out.println("After dot: " + baseFolderLocation);
+//		
+//		baseFolderLocation = baseFolderLocation.replaceAll("\\\\", "_");
+//		
+//		System.out.println("After backslash: " + baseFolderLocation);
+//		
+//		baseFolderLocation = baseFolderLocation.replaceAll("\\s+", "_");
+//		
+//		System.out.println("After space: " + baseFolderLocation);
+//		
+//		baseFolderLocation = baseFolderLocation.replaceAll("/", "_");
+//		
+//		System.out.println("After front slash: " + baseFolderLocation);
+//		
+//		System.exit(0);
 
-		final File inputFolder = new File(baseFolderLocation + "/" + SeggregatorConstants.SOURCE_FOLDER);
+		final File inputFolder = 
+				new File(baseFolderLocation + "/" + SeggregatorConstants.SOURCE_FOLDER);
 
+		System.out.println("Input folder location: " + inputFolder.toPath().toString());
+		
 		seggragateAssets(baseFolderLocation, inputFolder);
 	}
 
@@ -28,15 +51,37 @@ public class PALAssetSeggregator {
 
 		for (final File fileEntry : inputFolder.listFiles()) {
 
-			String fileName =  fileEntry.getName();
+			String palIdWithExtension =  fileEntry.getName();
 
 
-			System.out.println("File Name is : " + fileName);
+			System.out.println("File Name is : " + palIdWithExtension);
+			
+			String[] palIdArray = palIdWithExtension.split(MetadataConstants.DOT);
 
-
-			String palId = fileName.split(MetadataConstants.DOT)[0];
-
+			String palId = palIdArray[0];
+			
 			String namePath = sqlRepository.getNamePath(palId,conn);
+			
+			String assetFileName = sqlRepository.getFileName(palId, conn);
+			
+			assetFileName = assetFileName.replaceAll("\\.", "_");
+			assetFileName = assetFileName.replaceAll("\\\\", "_");
+			assetFileName = assetFileName.replaceAll("\\s+", "_");
+			assetFileName = assetFileName.replaceAll("/", "_");
+			
+			String assetFileNameWithExtension;
+			
+			
+			//There are few assets without any extension
+			if (palIdArray.length > 1 ) {
+			
+				assetFileNameWithExtension = assetFileName + "." + palIdArray[1] ;
+			}
+			else {
+				assetFileNameWithExtension = assetFileName;
+			}
+
+			
 			
 			Boolean allORAPRRegions = sqlRepository.checkALLORAPRRegions(palId,conn);
 
@@ -46,7 +91,7 @@ public class PALAssetSeggregator {
 
 			String destinationPath;
 
-			if ( null == namePath) {
+			if ( null == namePath || null == assetFileName) {
 
 				System.out.println("No value returned from the db, doing nothing");
 			}
@@ -63,7 +108,7 @@ public class PALAssetSeggregator {
 						destinationPath = baseFolderLocation + "/" + 
 								SeggregatorConstants.PCC_FOLDER + "/" + 
 								SeggregatorConstants.REGIONAL_IDENTIFICATION + "/" +
-								fileName;
+								assetFileNameWithExtension;
 					}
 					else {
 						
@@ -71,7 +116,7 @@ public class PALAssetSeggregator {
 						
 						destinationPath = baseFolderLocation + "/" + 
 								SeggregatorConstants.PCC_FOLDER + "/" +
-								fileName;
+								assetFileNameWithExtension;
 
 					}
 					
@@ -91,7 +136,7 @@ public class PALAssetSeggregator {
 						destinationPath = baseFolderLocation + "/" + 
 								SeggregatorConstants.MARCOM_FOLDER + "/" +
 								SeggregatorConstants.REGIONAL_IDENTIFICATION + "/" +
-								fileName;
+								assetFileNameWithExtension;
 					}
 					else {
 						
@@ -99,7 +144,7 @@ public class PALAssetSeggregator {
 
 						destinationPath = baseFolderLocation + "/" + 
 								SeggregatorConstants.MARCOM_FOLDER + "/" +
-								fileName;
+								assetFileNameWithExtension;
 
 					}
 					
@@ -118,7 +163,7 @@ public class PALAssetSeggregator {
 						destinationPath = baseFolderLocation + "/" + 
 								SeggregatorConstants.BRAND_ELEMENTS_FOLDER + "/" +
 								SeggregatorConstants.REGIONAL_IDENTIFICATION + "/" +
-								fileName;
+								assetFileNameWithExtension;
 					}
 					else {
 						
@@ -126,7 +171,7 @@ public class PALAssetSeggregator {
 
 						destinationPath = baseFolderLocation + "/" + 
 								SeggregatorConstants.BRAND_ELEMENTS_FOLDER + "/" +
-								fileName;
+								assetFileNameWithExtension;
 
 					}
 					copyFiles(
@@ -139,7 +184,7 @@ public class PALAssetSeggregator {
 
 					destinationPath = baseFolderLocation + "/" + 
 							SeggregatorConstants.AM_UNDEFINED_FOLDER + "/" +
-							fileName;
+							assetFileNameWithExtension;
 					copyFiles(
 							fileEntry.toPath(), destinationPath
 							);
