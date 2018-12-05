@@ -42,25 +42,27 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			SQLRepository sQLRepository = new SQLRepository(); 
 
-			String assetNameWithExtension = asset.getName();
+			String assetName = asset.getName().split(MetadataConstants.DOT)[0];
+			
+			String assetPALId = sQLRepository.getassetPALId(assetName, context.getJDBCConnection());
+			
+			log.debug("Asset Name with Extension: " + assetName);
 
-			log.debug("Asset Name with Extension: " + assetNameWithExtension);
+			//String[] assetPALId = assetNameWithExtension.split(MetadataConstants.DOT);
+			
 
-			String[] assetPALId = assetNameWithExtension.split(MetadataConstants.DOT);
-
-			log.debug("Asset PAL ID: " + assetPALId[0]);
+			log.debug("Asset PAL ID: " + assetPALId);
 
 			HashMap<String,String> palMetadataMap = sQLRepository.getAssetMetadata
-					(assetPALId[0], context.getJDBCConnection());
+					(assetPALId, context.getJDBCConnection());
+			
+			String assetType = sQLRepository.getAssetType(assetPALId,
+					context.getJDBCConnection());
+			
+			palMetadataMap.put(MetadataConstants.SCALAR_FIELDS[0], assetPALId);
+			palMetadataMap.put(MetadataConstants.SCALAR_FIELDS[1], assetType);
 			
 			MetadataRepository metadataRepository = new MetadataRepository();
-
-			for ( MetadataTableField processedMediaTabularField : 
-				metadataRepository.processMediaTabularField(palMetadataMap) )
-			{
-				assetMetadata.replaceElement(processedMediaTabularField, true);
-
-			}
 
 			for (MetadataField scalarField : 
 				metadataRepository.processScalarFields(palMetadataMap) ) {
@@ -69,12 +71,48 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			}
 
-			for (MetadataTableField processedTableField : 
-				metadataRepository.processUsageRightsTable(palMetadataMap)) {
 
-				assetMetadata.replaceElement(processedTableField, true);
+			//Languages Tabular Field
+			assetMetadata.replaceElement(metadataRepository.
+					processLanguagesTabularField(
+							palMetadataMap.get(
+									MetadataConstants.LANGUAGES_FIELD)), true);
+			
+			for ( MetadataTableField processedMediaTabularField : 
+				metadataRepository.processMediaTabularField(palMetadataMap) )
+			{
+				assetMetadata.replaceElement(processedMediaTabularField, true);
 
 			}
+
+			for (MetadataTableField processedRightsTableField : 
+				metadataRepository.processUsageRightsTable(palMetadataMap) ) {
+
+				assetMetadata.replaceElement(processedRightsTableField, true);
+
+			}
+
+
+			for ( MetadataTableField processedFileTableField : 
+				metadataRepository.processFileTabularFields(palMetadataMap) )
+			{
+				assetMetadata.replaceElement(processedFileTableField, true);
+
+			}
+
+
+			//Get AssetType
+			
+			/*
+			ResultSet assetNamePathSet = sQLRepository.getAssetNamePath
+					(assetPALId[0], context.getJDBCConnection());
+
+			if ( null != assetNamePathSet) {
+
+				assetMetadata.replaceElement(metadataRepository.getAssetType(assetNamePathSet), true);
+			}
+			*/
+
 
 			asset.setMetadata(assetMetadata);
 
@@ -83,5 +121,5 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 	}
 
-	
+
 }

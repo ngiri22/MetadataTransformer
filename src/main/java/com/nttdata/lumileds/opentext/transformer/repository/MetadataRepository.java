@@ -1,5 +1,6 @@
 package com.nttdata.lumileds.opentext.transformer.repository;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,15 +9,16 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.artesia.entity.TeamsIdentifier;
+import com.artesia.metadata.MetadataElement;
 import com.artesia.metadata.MetadataField;
 import com.artesia.metadata.MetadataTableField;
 import com.artesia.metadata.MetadataValue;
 import com.nttdata.lumileds.opentext.transformer.utility.MetadataConstants;
 
 public class MetadataRepository {
-	
+
 	private static final Log log = LogFactory.getLog(MetadataRepository.class);
-	
+
 	public List<MetadataTableField> processUsageRightsTable(HashMap<String, String> palMetadataMap) {
 
 		List<MetadataTableField> usageRightsTableFields = new ArrayList<MetadataTableField>();
@@ -73,9 +75,9 @@ public class MetadataRepository {
 
 		String countriesValues = palMetadataMap.get(MetadataConstants.COUNTRIES_FIELD);
 
-		if ( null != regionValues ) {
+		//if ( null != regionValues ) {
 
-			if ( regionValues.contains(MetadataConstants.ALL_STRING) ) {
+			if ( null == regionValues || regionValues.contains(MetadataConstants.ALL_STRING) ) {
 
 				for (MetadataValue regionField : MetadataConstants.REGION_VALUES ) {
 
@@ -90,6 +92,8 @@ public class MetadataRepository {
 			else {
 
 				for ( String region :  regionValues.split(MetadataConstants.COMMA)) {
+					
+					region = region.trim();
 
 					if ( region.equals("APR") ) {
 						region = "APAC";
@@ -101,7 +105,7 @@ public class MetadataRepository {
 					countriesTableField.addValue(countriesValues);
 				}
 
-			}
+			//}
 		}
 
 		MetadataTableField[] mediaTabularFields = {regionTableField, countriesTableField};
@@ -125,19 +129,20 @@ public class MetadataRepository {
 			MetadataField metadataField = new MetadataField(new TeamsIdentifier(scalarField));
 
 
-			if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[0])) {
-
-				String isoLanguagesCode = MetadataConstants.ISO_LANGUAGES_MAP.get(palMetadataValue);
-
-				log.debug("ISO Language code: " + isoLanguagesCode);
-
-				metadataField.setValue(isoLanguagesCode);
-			}
-			else {
+			//Languages field
+//			if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[0])) {
+//
+//				String isoLanguagesCode = MetadataConstants.ISO_LANGUAGES_MAP.get(palMetadataValue);
+//
+//				log.debug("ISO Language code: " + isoLanguagesCode);
+//
+//				metadataField.setValue(isoLanguagesCode);
+//			}
+//			else {
 
 				metadataField.setValue(palMetadataValue);
 
-			}
+//			}
 
 
 			scalarFields.add(metadataField);
@@ -147,6 +152,64 @@ public class MetadataRepository {
 		}
 
 		return scalarFields;
+	}
+	
+	public MetadataTableField processLanguagesTabularField(String languagesMetaValue) {
+		
+		String isoLanguagesCode = 
+				MetadataConstants.ISO_LANGUAGES_MAP.get(languagesMetaValue);
+
+		log.debug("ISO Language code: " + isoLanguagesCode);
+		
+		MetadataTableField languagesTableField = 
+				new MetadataTableField(
+						new TeamsIdentifier(
+								MetadataConstants.LANGUAGES_FIELD
+								));
+
+		languagesTableField.addValue(isoLanguagesCode);
+		
+		return languagesTableField;
+	}
+
+	public List<MetadataTableField> processFileTabularFields(HashMap<String, String> palMetadataMap) {
+
+		List<MetadataTableField> fileTabularFields = new ArrayList<MetadataTableField>();
+
+		for ( String fileTabularFieldId : MetadataConstants.FILE_INFO_TAB_FIELDS) {
+
+			log.debug("Processing File Tabular field: " + fileTabularFieldId);
+
+			MetadataTableField fileInfoTableField = new MetadataTableField(new TeamsIdentifier(fileTabularFieldId));
+
+			String metadataValue = palMetadataMap.get(fileTabularFieldId);
+
+			log.debug("Usage Rights field value: " + metadataValue );
+
+			if (null != metadataValue) {
+
+				fileInfoTableField.addValue(metadataValue);
+
+			}
+//			else if ( fileTabularFieldId.equals(MetadataConstants.FILE_INFO_TAB_FIELDS[2]) ) {
+//
+//				log.debug("Processing Creator Owner Group: " + fileTabularFieldId );
+//
+//				fileInfoTableField.addValue(new MetadataValue("Agency^SGS"));
+//			}
+
+			fileTabularFields.add(fileInfoTableField);
+
+		}
+
+
+		return fileTabularFields;
+
+	}
+
+	public MetadataElement getAssetType(ResultSet assetNamePathSet) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
