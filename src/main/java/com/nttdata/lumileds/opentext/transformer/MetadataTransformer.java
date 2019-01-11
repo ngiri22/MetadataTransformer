@@ -42,9 +42,18 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			SQLRepository sQLRepository = new SQLRepository(); 
 
-			String assetName = asset.getName().split(MetadataConstants.DOT)[0];
+			String [] assetArray = asset.getName().split(MetadataConstants.DOT);
 			
-			String assetPALId = sQLRepository.getassetPALId(assetName, context.getJDBCConnection());
+			String assetName = assetArray[0];
+			
+			String assetExtension = "";
+			
+			if (assetArray.length > 1) {
+				assetExtension = assetArray[1];
+			}
+			
+			String assetPALId = sQLRepository.getassetPALId(
+					assetName, assetExtension, context.getJDBCConnection());
 			
 			log.debug("Asset Name with Extension: " + assetName);
 
@@ -85,20 +94,20 @@ public class MetadataTransformer implements AssetImportInterceptor {
 
 			}
 
-			for (MetadataTableField processedRightsTableField : 
-				metadataRepository.processUsageRightsTable(palMetadataMap) ) {
-
-				assetMetadata.replaceElement(processedRightsTableField, true);
-
-			}
-
-
-			for ( MetadataTableField processedFileTableField : 
-				metadataRepository.processFileTabularFields(palMetadataMap) )
-			{
-				assetMetadata.replaceElement(processedFileTableField, true);
-
-			}
+//			for (MetadataTableField processedRightsTableField : 
+//				metadataRepository.processUsageRightsTable(palMetadataMap) ) {
+//
+//				assetMetadata.replaceElement(processedRightsTableField, true);
+//
+//			}
+//
+//
+//			for ( MetadataTableField processedFileTableField : 
+//				metadataRepository.processFileTabularFields(palMetadataMap) )
+//			{
+//				assetMetadata.replaceElement(processedFileTableField, true);
+//
+//			}
 
 
 			//Get AssetType

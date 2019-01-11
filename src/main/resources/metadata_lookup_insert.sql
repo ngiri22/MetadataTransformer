@@ -10,6 +10,7 @@ INSERT INTO LUM_MD_ASSET_TYPE_LU (ID, VALUE, DESCRIPTION) values
 ('Drawing','Drawing',''),
 ('Flat Artwork','Flat Artwork',''),
 ('Glossary Feature','Glossary Feature',''),
+('Graphic','Graphic',''),
 ('Icon','Icon',''),
 ('Leaflet','Leaflet',''),
 ('Lifestyle Picture','Lifestyle Picture',''),
@@ -184,7 +185,8 @@ INSERT INTO LUM_MD_MANUFACTURER_LU (ID, VALUE, DESCRIPTION) values
 ('Chromos Lighting','Chromos Lighting',''),
 ('GENERAL ELECTRIC LIGHTING','GENERAL ELECTRIC LIGHTING',''),
 ('SHINNING BLICK ENTERPRISES Co Ltd','SHINNING BLICK ENTERPRISES Co Ltd',''),
-('CANDLEPOWER, INC.','CANDLEPOWER, INC.','');
+('CANDLEPOWER, INC.','CANDLEPOWER, INC.',''),
+('Lumileds','Lumileds','');
 
 /*
 WCMS Confidentiality
@@ -244,7 +246,6 @@ Type Test
 
 INSERT INTO LUM_MD_TYPE_TEST_LU (ID, VALUE, DESCRIPTION) values
 ('Inrush current','Inrush current',''),
-('Geo-Photo-Lifetime','Geo-Photo-Lifetime',''),
 ('Shock','Shock',''),
 ('Temperature','Temperature',''),
 ('Test Result','Test Result',''),
@@ -320,18 +321,17 @@ INSERT INTO LUM_MD_PKG_CLUSTER_CAS_MAP values
 /*
 YEAR OF RELEASE
 */
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2011', '2011');
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2012', '2012');
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2013', '2013');
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2014', '2014');
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2015', '2015');
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2016', '2016');
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2017', '2017');
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2018', '2018');
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2019', '2019');
-insert into LUM_MD_YEAR_OF_REL_LU (id, value) values ('2020', '2020');
-
-
+INSERT INTO LUM_MD_YEAR_OF_REL_LU (ID, VALUE, DESCRIPTION) values 
+('2011', '2011',''),
+('2012', '2012',''),
+('2013', '2013',''),
+('2014', '2014',''),
+('2015', '2015',''),
+('2016', '2016',''),
+('2017', '2017',''),
+('2018', '2018',''),
+('2019', '2019',''),
+('2020', '2020','');
 
 /*
 Test time cascading field
@@ -1280,7 +1280,6 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 /*
 OTMM Mapper
 */
-
 INSERT INTO LUMILEDS_MIGRATION_PAL_OTMM_MAPPING values
 ('Asset_Countries','LUM.FIELD.COUNTRIES'),
 ('Asset_Brand','LUM.FIELD.BRAND'),
@@ -1292,14 +1291,15 @@ INSERT INTO LUMILEDS_MIGRATION_PAL_OTMM_MAPPING values
 ('Asset_Rights_Copyright_Date_Start','COPYRIGHT_START_DATE'),
 ('Asset_Rights_Copyright_Date_End','COPYRIGHT_END_DATE'),
 ('Asset_Rights_Copyright_Geolocation','COPYRIGHT_GEO_LOCATION'),
-('Asset_Rights_Copyright_Date_Applicable','COPYRIGHT_VISUAL_APPLICABLE'),
-('Asset_Music_Rights_Applicable','COPYRIGHT_MUSIC_APPLICABLE');
-('Asset_Rights_Copyright_Channel','COPYRIGHT_TOUCHPOINTS'),
+('Asset_Rights_Copyright_Date_Applicable','LUM.FIELD.RIGHT_VISUAL'),
+('Asset_Music_Rights_Applicable','LUM.FIELD.MUSIC_RIGHT_APPLICABLE'),
+('Asset_Rights_Copyright_Channel','LUM.FIELD.RIGHT_TOUCHPOINTS'),
 ('Asset_Automotive_Region','REGIONS'),
 ('Asset_Date_Activation','ACTIVATION_DATE'),
 ('Asset_Date_Deactivation','DEACTIVATION_DATE'),
 ('Asset_Creator_Owner_Email','LUM.FIELD.LEGACY_OWNER_EMAIL'),
 ('Asset_DM_Asset_Owner','LUM.FIELD.CONTENT_EDITOR');
+
 
 INSERT INTO LUMILEDS_MIGRATION_PAL_ASSET_TYPE_MAPPING values
 ('/Assets/PhilipsAssetType/ATL/Print/Brochure','Catalog'),
@@ -1344,14 +1344,34 @@ INSERT INTO LUMILEDS_MIGRATION_PAL_ASSET_TYPE_MAPPING values
 ('/Assets/PhilipsAssetType/Philips Product Library/Product with stand photo','Web Banner'),
 ('/Assets/PhilipsAssetType/Audio and Video','Lifestyle Video'),
 ('/Assets/PhilipsAssetType/Audio and Video/Video','Lifestyle Video'),
-('/Assets/PhilipsAssetType/DataMigrationUnknown','Other'),
-('/Assets/PhilipsAssetType/Online','Other'),
+('/Assets/PhilipsAssetType/DataMigrationUnknown','Display'),
+('/Assets/PhilipsAssetType/Online','Display'),
 ('/Assets/PhilipsAssetType/Product/Product videos','Product Feature Video'),
-('/Assets/PhilipsAssetType/Product/Video','Product Feature Video');
+('/Assets/PhilipsAssetType/Product/Video','Product Feature Video'),
+('/Assets/PhilipsAssetType/Audio and Video/Video/Explanation','Tutorial Video'),
+('/Assets/PhilipsAssetType/Briefs and Guidelines/Briefs','Catalog'),
+('/Assets/PhilipsAssetType/Product/Award','Product Picture'),
+('/Assets/PhilipsAssetType/Online/Applications','Web Banner'),
+('/Assets/PhilipsAssetType/Online/Banners','Web Banner'),
+('/Assets/PhilipsAssetType/Online/E-mail','Web Banner'),
+('/Assets/PhilipsAssetType/Online/Social Media','Web Banner');
 
-('/Assets/PhilipsAssetType/Audio and Video','Tutorial Video'),
-('/Assets/PhilipsAssetType/Audio and Video/Video','Tutorial Video'),
-('/Assets/PhilipsAssetType/DataMigrationUnknown','Leaflet'),
-('/Assets/PhilipsAssetType/Online','Web Banner'),
-('/Assets/PhilipsAssetType/Product/Product videos','Product Feature Video'),
-('/Assets/PhilipsAssetType/Product/Video','Product Feature Video');
+
+update metadata_fields set SEARCHABLE_SCOPE_ID=1 where field_id='ARTESIA.FIELD.ASSET ID';
+update OTMM_SYS_CONFIG_SETTINGS set 
+CONFIG_VALUE='-intent relative -flatten -sample 500x375> -quality 95 -colorspace sRGB -strip -auto-orient'
+ WHERE NAME='IMAGEMAGICK_THUMBNAIL_SETTINGS';
+
+update OTMM_SYS_CONFIG_SETTINGS set 
+CONFIG_VALUE='-intent relative -flatten -sample 1024x768> -quality 95 -colorspace sRGB -strip -auto-orient'
+ WHERE NAME='IMAGEMAGICK_PREVIEW_SETTINGS';
+
+update OTMM_SYS_CONFIG_SETTINGS set 
+CONFIG_VALUE='-intent relative -flatten -sample 500x375> -quality 95 -colorspace sRGB -strip -auto-orient -density 72'
+ WHERE NAME='DNG_IMAGEMAGICK_THUMBNAIL_SETTINGS';
+
+update OTMM_SYS_CONFIG_SETTINGS set 
+CONFIG_VALUE='-intent relative -flatten -sample 1024x768> -quality 95 -colorspace sRGB -strip -auto-orient -density 72'
+ WHERE NAME='DNG_IMAGEMAGICK_PREVIEW_SETTINGS';
+ 
+update UOI_CONTENT_STATES set name='Partially Deleted' where name='sel_del'; 
