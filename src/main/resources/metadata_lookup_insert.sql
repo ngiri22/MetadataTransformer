@@ -37,6 +37,7 @@ INSERT INTO LUM_MD_ASSET_TYPE_LU (ID, VALUE, DESCRIPTION) values
 INSERT INTO LUM_MD_BRAND_LU (ID, VALUE, DESCRIPTION) values
 ('Haloway','Haloway',''),
 ('Lumileds','Lumileds',''),
+('MIRADIOR','MIRADIOR',''),
 ('NARVA','NARVA',''),
 ('OES','OES',''),
 ('Philips','Philips',''),
@@ -164,7 +165,9 @@ INSERT INTO LUM_MD_FACTORY_LU (ID, VALUE, DESCRIPTION) values
 ('Jiaxing','Jiaxing',''),
 ('San Jose','San Jose',''),
 ('Singapore','Singapore',''),
-('Penang','Penang','');
+('Penang','Penang',''),
+('OM','OM',''),
+('Plauen','Plauen','');
 
 /*
 Manufacturer
@@ -184,9 +187,10 @@ INSERT INTO LUM_MD_MANUFACTURER_LU (ID, VALUE, DESCRIPTION) values
 ('Hana Semiconductor International','Hana Semiconductor International',''),
 ('Chromos Lighting','Chromos Lighting',''),
 ('GENERAL ELECTRIC LIGHTING','GENERAL ELECTRIC LIGHTING',''),
-('SHINNING BLICK ENTERPRISES Co Ltd','SHINNING BLICK ENTERPRISES Co Ltd',''),
 ('CANDLEPOWER, INC.','CANDLEPOWER, INC.',''),
-('Lumileds','Lumileds','');
+('Lumileds','Lumileds',''),
+('OSRAM GMBH','OSRAM GMBH',''),
+('KOITO MANUFACTURING Co. Ltd','KOITO MANUFACTURING Co. Ltd','');
 
 /*
 WCMS Confidentiality
@@ -1349,12 +1353,14 @@ INSERT INTO LUMILEDS_MIGRATION_PAL_ASSET_TYPE_MAPPING values
 ('/Assets/PhilipsAssetType/Product/Product videos','Product Feature Video'),
 ('/Assets/PhilipsAssetType/Product/Video','Product Feature Video'),
 ('/Assets/PhilipsAssetType/Audio and Video/Video/Explanation','Tutorial Video'),
-('/Assets/PhilipsAssetType/Briefs and Guidelines/Briefs','Catalog'),
-('/Assets/PhilipsAssetType/Product/Award','Product Picture'),
-('/Assets/PhilipsAssetType/Online/Applications','Web Banner'),
+('/Assets/PhilipsAssetType/Briefs and Guidelines/Briefs','Product Picture'),
+('/Assets/PhilipsAssetType/Product/Award','Icon'),
+('/Assets/PhilipsAssetType/Online/Applications','Icon'),
 ('/Assets/PhilipsAssetType/Online/Banners','Web Banner'),
-('/Assets/PhilipsAssetType/Online/E-mail','Web Banner'),
-('/Assets/PhilipsAssetType/Online/Social Media','Web Banner');
+('/Assets/PhilipsAssetType/Online/E-mail','Advertising'),
+('/Assets/PhilipsAssetType/Online/Social Media','Web Banner'),
+('/Assets/PhilipsAssetType/Customer portal/Tutorial','Tutorial Video'),
+('/Assets/PhilipsAssetType/Customer portal/Brochure','Catalog');
 
 
 update metadata_fields set SEARCHABLE_SCOPE_ID=1 where field_id='ARTESIA.FIELD.ASSET ID';

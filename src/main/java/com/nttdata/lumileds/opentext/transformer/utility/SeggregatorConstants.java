@@ -11,15 +11,15 @@ public class SeggregatorConstants {
 //	public static final String DB_PASSWORD = "@ttmDevDBA01";
 
 	
-//	public static final String DB_URL = "jdbc:sqlserver://10.80.132.102:1433;DatabaseName=OTMM_QA";
-//	public static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-//	public static final String DB_USER = "otmm_dba";
-//	public static final String DB_PASSWORD = "@tmmDBA01";
-
-	public static final String DB_URL = "jdbc:sqlserver://10.80.134.81:1433;DatabaseName=OTMM_PROD";
+	public static final String DB_URL = "jdbc:sqlserver://10.80.132.102:1433;DatabaseName=OTMM_QA";
 	public static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	public static final String DB_USER = "otmm_dba";
-	public static final String DB_PASSWORD = "@tmmDBA321";
+	public static final String DB_PASSWORD = "@tmmDBA01";
+
+//	public static final String DB_URL = "jdbc:sqlserver://10.80.134.81:1433;DatabaseName=OTMM_PROD";
+//	public static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//	public static final String DB_USER = "otmm_dba";
+//	public static final String DB_PASSWORD = "@tmmDBA321";
 
 	
 	public static final String SOURCE_FOLDER = "SOURCE";
@@ -36,6 +36,8 @@ public class SeggregatorConstants {
 	public static final String DEACTIVATION_DATE = "Asset_Date_Deactivation";
 	public static final String ARCHIVE_FOLDER = "Archive";
 	
+	public static final String DUPLICATE_STRING = "DUPLICATE";
+	
 
 	public static final String PRODUCT_QUERY_INITIAL_TERM = "/Assets/PhilipsAssetType/%";
 
@@ -45,10 +47,7 @@ public class SeggregatorConstants {
 					"/Assets/PhilipsAssetType/Document",
 					"/Assets/PhilipsAssetType/Online",
 					"/Assets/PhilipsAssetType/Online/Website",
-					"/Assets/PhilipsAssetType/Online/Applications",
-					"/Assets/PhilipsAssetType/Online/Banners",
-					"/Assets/PhilipsAssetType/Online/E-mail",
-					"/Assets/PhilipsAssetType/Online/Social Media"
+					"/Assets/PhilipsAssetType/Briefs and Guidelines/Briefs"
 					);
 
 	public static final List<String> pccList = 
@@ -102,8 +101,14 @@ public class SeggregatorConstants {
 					"/Assets/PhilipsAssetType/Product/Product videos",
 					"/Assets/PhilipsAssetType/Product/Video",
 					"/Assets/PhilipsAssetType/Audio and Video/Video/Explanation",
-					"/Assets/PhilipsAssetType/Briefs and Guidelines/Briefs",
-					"/Assets/PhilipsAssetType/Product/Award"					
+					"/Assets/PhilipsAssetType/Product/Award",
+					"/Assets/PhilipsAssetType/Online/Applications",
+					"/Assets/PhilipsAssetType/Online/Banners",
+					"/Assets/PhilipsAssetType/Online/E-mail",
+					"/Assets/PhilipsAssetType/Online/Social Media",
+					"/Assets/PhilipsAssetType/Customer portal/Brochure",
+					"/Assets/PhilipsAssetType/Customer portal/Tutorial"
+
 					);
 
 	public static final List<String> brandElementsList = 
@@ -112,6 +117,7 @@ public class SeggregatorConstants {
 					"/Assets/PhilipsAssetType/Corporate/Logo",
 					"/Assets/PhilipsAssetType/Philips Product Library/System Logo"
 					);
+	
 		
 
 }

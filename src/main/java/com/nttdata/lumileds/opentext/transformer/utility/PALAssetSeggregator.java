@@ -12,26 +12,28 @@ public class PALAssetSeggregator {
 	public static void main(String[] args) {
 
 		final String baseFolderLocation = args[0];
-
-		//				String baseFolderLocation = "hello_one   	two\\three/four	five";
-		//				
-		//				baseFolderLocation = baseFolderLocation.replaceAll("\\.", "_");
-		//				
-		//				System.out.println("After dot: " + baseFolderLocation);
-		//				
-		//				baseFolderLocation = baseFolderLocation.replaceAll("\\\\", "_");
-		//				
-		//				System.out.println("After backslash: " + baseFolderLocation);
-		//				
-		//				baseFolderLocation = baseFolderLocation.replaceAll("\\s+", "_");
-		//				
-		//				System.out.println("After space: " + baseFolderLocation);
-		//				
-		//				baseFolderLocation = baseFolderLocation.replaceAll("/", "_");
-		//				
-		//				System.out.println("After front slash: " + baseFolderLocation);
-		//				
-		//				System.exit(0);
+//
+//						String baseFolderLocation = "hello_	one   	two\\three/four		five	";
+//						
+//						baseFolderLocation = baseFolderLocation.replaceAll("\\.", "_");
+//						
+//						System.out.println("After dot: " + baseFolderLocation);
+//						
+//						baseFolderLocation = baseFolderLocation.replaceAll("\\\\", "_");
+//						
+//						System.out.println("After backslash: " + baseFolderLocation);
+//						
+//						baseFolderLocation = baseFolderLocation.replaceAll("\\s{2,}", " ").trim();
+//						
+//						baseFolderLocation = baseFolderLocation.replaceAll("\t", " ").trim();
+//						
+//						System.out.println("After space: " + baseFolderLocation + "check");
+//						
+//						baseFolderLocation = baseFolderLocation.replaceAll("/", "_");
+//						
+//						System.out.println("After front slash: " + baseFolderLocation);
+//						
+//						System.exit(0);
 
 		final File inputFolder = 
 				new File(baseFolderLocation + "/" + SeggregatorConstants.SOURCE_FOLDER);
@@ -61,12 +63,21 @@ public class PALAssetSeggregator {
 			String namePath = sqlRepository.getNamePath(palId,conn);
 
 			String assetFileName = sqlRepository.getFileName(palId, conn);
+			
+			if ( null == namePath || null == assetFileName) {
 
+				System.out.println("No value returned from the db, doing nothing");
+
+				continue;
+
+			}
+			
 			assetFileName = assetFileName.replaceAll("\\.", "_");
 			assetFileName = assetFileName.replaceAll("\\\\", "_");
-			assetFileName = assetFileName.replaceAll("\\s+", "_");
+			assetFileName = assetFileName.replaceAll("\\s{2,}", " ");
+			assetFileName = assetFileName.replaceAll("\t", " ");
 			assetFileName = assetFileName.replaceAll("/", "_");
-			assetFileName = assetFileName.replaceAll(":", "_");
+			assetFileName = assetFileName.replaceAll(":", "_").trim();
 
 			String assetFileNameWithExtension;
 
@@ -89,13 +100,7 @@ public class PALAssetSeggregator {
 
 			boolean copyFlag = false ;
 
-			if ( null == namePath || null == assetFileName) {
-
-				System.out.println("No value returned from the db, doing nothing");
-
-
-			}
-			else if ( sqlRepository.checkAssetArchived(palId, conn)) {
+			if ( sqlRepository.checkAssetArchived(palId, conn)) {
 
 				copyFlag = true;
 
@@ -232,7 +237,9 @@ public class PALAssetSeggregator {
 
 				i += 1 ;
 
-				fileNameWithoutExtension = fileArray[0] + "_" + i;
+				fileNameWithoutExtension = fileArray[0] + 
+						"_" + SeggregatorConstants.DUPLICATE_STRING +  
+						"_" + i;
 
 				if (fileArray.length > 1) {
 					
