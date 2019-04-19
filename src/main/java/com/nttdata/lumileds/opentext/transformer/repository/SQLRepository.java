@@ -125,11 +125,12 @@ public class SQLRepository {
 		return "NO_MATCH";
 	}
 
-	public String getassetPALId(String assetNameWithExtension, Connection conn) {
+	public String getassetPALId(String assetFileName, String assetExtension, Connection conn) {
 		
 		String assetPALId = "SELECT PAL_ID FROM "
 				+ "LUMILEDS_MIGRATION_PAL_FILE_NAME_MAPPING WHERE "
-				+ "FILE_NAME = ?";
+				+ "FILE_NAME = ? AND "
+				+ "EXTENSION = ? ";
 		
 		PreparedStatement assetPALIdStatement;
 		
@@ -137,7 +138,9 @@ public class SQLRepository {
 			
 			assetPALIdStatement = conn.prepareStatement(assetPALId);
 			
-			assetPALIdStatement.setString(1, assetNameWithExtension);
+			assetPALIdStatement.setString(1, assetFileName);
+			assetPALIdStatement.setString(2, assetExtension);
+			
 			
 			ResultSet rs = assetPALIdStatement.executeQuery();
 			

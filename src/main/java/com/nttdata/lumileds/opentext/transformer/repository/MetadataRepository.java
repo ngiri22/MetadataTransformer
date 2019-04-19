@@ -67,8 +67,10 @@ public class MetadataRepository {
 	public MetadataTableField[] processMediaTabularField(
 			HashMap<String, String> palMetadataMap) {
 
-		MetadataTableField regionTableField = new MetadataTableField(new TeamsIdentifier(MetadataConstants.REGION_FIELD));
-		MetadataTableField countriesTableField = new MetadataTableField(new TeamsIdentifier(MetadataConstants.COUNTRIES_FIELD));
+		MetadataTableField regionTableField = 
+				new MetadataTableField(new TeamsIdentifier(MetadataConstants.REGION_FIELD));
+		MetadataTableField countriesTableField = 
+				new MetadataTableField(new TeamsIdentifier(MetadataConstants.COUNTRIES_FIELD));
 
 
 		String regionValues = palMetadataMap.get(MetadataConstants.REGION_FIELD);
@@ -77,33 +79,33 @@ public class MetadataRepository {
 
 		//if ( null != regionValues ) {
 
-			if ( null == regionValues || regionValues.contains(MetadataConstants.ALL_STRING) ) {
+		if ( null == regionValues || regionValues.contains(MetadataConstants.ALL_STRING) ) {
 
-				for (MetadataValue regionField : MetadataConstants.REGION_VALUES ) {
+			for (MetadataValue regionField : MetadataConstants.REGION_VALUES ) {
 
-					log.debug("Region Field value: " + regionValues);
-					log.debug("Countries Field value: " + countriesValues);
+				log.debug("Region Field value: " + regionValues);
+				log.debug("Countries Field value: " + countriesValues);
 
-					regionTableField.addValue(regionField);
-					countriesTableField.addValue(countriesValues);			
-				}
-
+				regionTableField.addValue(regionField);
+				countriesTableField.addValue(countriesValues);			
 			}
-			else {
 
-				for ( String region :  regionValues.split(MetadataConstants.COMMA)) {
-					
-					region = region.trim();
+		}
+		else {
 
-					if ( region.equals("APR") ) {
-						region = "APAC";
-					}
+			for ( String region :  regionValues.split(MetadataConstants.COMMA)) {
 
-					log.debug("Region field value: " + region);
+				region = region.trim();
 
-					regionTableField.addValue(region);
-					countriesTableField.addValue(countriesValues);
+				if ( region.equals("APR") ) {
+					region = "APAC";
 				}
+
+				log.debug("Region field value: " + region);
+
+				regionTableField.addValue(region);
+				countriesTableField.addValue(countriesValues);
+			}
 
 			//}
 		}
@@ -129,20 +131,35 @@ public class MetadataRepository {
 			MetadataField metadataField = new MetadataField(new TeamsIdentifier(scalarField));
 
 
-			//Languages field
-//			if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[0])) {
-//
-//				String isoLanguagesCode = MetadataConstants.ISO_LANGUAGES_MAP.get(palMetadataValue);
-//
-//				log.debug("ISO Language code: " + isoLanguagesCode);
-//
-//				metadataField.setValue(isoLanguagesCode);
-//			}
-//			else {
+			// Copyrights Applicable fields
+
+			if (scalarField.equals(MetadataConstants.SCALAR_FIELDS[2]) || 
+					scalarField.equals(MetadataConstants.SCALAR_FIELDS[3]) ) {
+
+
+				log.debug("Yes/No domain entry for field: " + metadataField );
+
+				if(palMetadataValue.equals("Yes")) {
+
+					metadataField.setValue(MetadataConstants.YES_CODE);
+				}
+				else {
+
+					metadataField.setValue(MetadataConstants.NO_CODE);
+				}
+
+				//				
+				//				String isoLanguagesCode = MetadataConstants.ISO_LANGUAGES_MAP.get(palMetadataValue);
+				//
+				//				log.debug("ISO Language code: " + isoLanguagesCode);
+				//
+				//				metadataField.setValue(isoLanguagesCode);
+			}
+			else {
 
 				metadataField.setValue(palMetadataValue);
 
-//			}
+			}
 
 
 			scalarFields.add(metadataField);
@@ -153,14 +170,14 @@ public class MetadataRepository {
 
 		return scalarFields;
 	}
-	
+
 	public MetadataTableField processLanguagesTabularField(String languagesMetaValue) {
-		
+
 		String isoLanguagesCode = 
 				MetadataConstants.ISO_LANGUAGES_MAP.get(languagesMetaValue);
 
 		log.debug("ISO Language code: " + isoLanguagesCode);
-		
+
 		MetadataTableField languagesTableField = 
 				new MetadataTableField(
 						new TeamsIdentifier(
@@ -168,7 +185,7 @@ public class MetadataRepository {
 								));
 
 		languagesTableField.addValue(isoLanguagesCode);
-		
+
 		return languagesTableField;
 	}
 
@@ -191,12 +208,12 @@ public class MetadataRepository {
 				fileInfoTableField.addValue(metadataValue);
 
 			}
-//			else if ( fileTabularFieldId.equals(MetadataConstants.FILE_INFO_TAB_FIELDS[2]) ) {
-//
-//				log.debug("Processing Creator Owner Group: " + fileTabularFieldId );
-//
-//				fileInfoTableField.addValue(new MetadataValue("Agency^SGS"));
-//			}
+			//			else if ( fileTabularFieldId.equals(MetadataConstants.FILE_INFO_TAB_FIELDS[2]) ) {
+			//
+			//				log.debug("Processing Creator Owner Group: " + fileTabularFieldId );
+			//
+			//				fileInfoTableField.addValue(new MetadataValue("Agency^SGS"));
+			//			}
 
 			fileTabularFields.add(fileInfoTableField);
 

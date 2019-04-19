@@ -16,6 +16,12 @@ public class SeggregatorConstants {
 	public static final String DB_USER = "otmm_dba";
 	public static final String DB_PASSWORD = "@tmmDBA01";
 
+//	public static final String DB_URL = "jdbc:sqlserver://10.80.134.81:1433;DatabaseName=OTMM_PROD";
+//	public static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//	public static final String DB_USER = "otmm_dba";
+//	public static final String DB_PASSWORD = "@tmmDBA321";
+
+	
 	public static final String SOURCE_FOLDER = "SOURCE";
 
 	public static final String AM_UNDEFINED_FOLDER = "AM/Unidentified";
@@ -26,6 +32,12 @@ public class SeggregatorConstants {
 	public static final String ALL_STRING = "%All%";
 	public static final String APR_STRING = "APR";
 	public static final String REGIONAL_IDENTIFICATION = "Regional Identification";
+	public static final String COPYRIGHT_END_DATE_FIELD = "Asset_Rights_Copyright_Date_End";
+	public static final String DEACTIVATION_DATE = "Asset_Date_Deactivation";
+	public static final String ARCHIVE_FOLDER = "Archive";
+	
+	public static final String DUPLICATE_STRING = "DUPLICATE";
+	
 
 	public static final String PRODUCT_QUERY_INITIAL_TERM = "/Assets/PhilipsAssetType/%";
 
@@ -34,7 +46,8 @@ public class SeggregatorConstants {
 					"/Assets/PhilipsAssetType/DataMigrationUnknown", 
 					"/Assets/PhilipsAssetType/Document",
 					"/Assets/PhilipsAssetType/Online",
-					"/Assets/PhilipsAssetType/Online/Website"
+					"/Assets/PhilipsAssetType/Online/Website",
+					"/Assets/PhilipsAssetType/Briefs and Guidelines/Briefs"
 					);
 
 	public static final List<String> pccList = 
@@ -46,6 +59,12 @@ public class SeggregatorConstants {
 					"/Assets/PhilipsAssetType/Product/Product images/Packaging Image",
 					"/Assets/PhilipsAssetType/Product/Product images/Planogram Image"
 					);
+	
+	
+	
+	
+	
+	
 	public static final List<String> marcomList = 
 			Arrays.asList(
 					"/Assets/PhilipsAssetType/ATL/Print/Brochure",
@@ -80,7 +99,16 @@ public class SeggregatorConstants {
 					"/Assets/PhilipsAssetType/Audio and Video",
 					"/Assets/PhilipsAssetType/Audio and Video/Video",
 					"/Assets/PhilipsAssetType/Product/Product videos",
-					"/Assets/PhilipsAssetType/Product/Video"
+					"/Assets/PhilipsAssetType/Product/Video",
+					"/Assets/PhilipsAssetType/Audio and Video/Video/Explanation",
+					"/Assets/PhilipsAssetType/Product/Award",
+					"/Assets/PhilipsAssetType/Online/Applications",
+					"/Assets/PhilipsAssetType/Online/Banners",
+					"/Assets/PhilipsAssetType/Online/E-mail",
+					"/Assets/PhilipsAssetType/Online/Social Media",
+					"/Assets/PhilipsAssetType/Customer portal/Brochure",
+					"/Assets/PhilipsAssetType/Customer portal/Tutorial"
+
 					);
 
 	public static final List<String> brandElementsList = 
@@ -90,5 +118,6 @@ public class SeggregatorConstants {
 					"/Assets/PhilipsAssetType/Philips Product Library/System Logo"
 					);
 	
+		
 
 }

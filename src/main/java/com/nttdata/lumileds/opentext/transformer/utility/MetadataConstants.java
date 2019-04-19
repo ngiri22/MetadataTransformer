@@ -35,13 +35,20 @@ public class MetadataConstants {
 		{
 				"LUM.FIELD.LEGACY_ASSET_ID",
 				"LUM.FIELD.ASSET_TYPE",
+				"LUM.FIELD.RIGHT_VISUAL",
+				"LUM.FIELD.MUSIC_RIGHT_APPLICABLE",
 				"LUM.FIELD.MEDIA_TITLE",
 				"LUM.FIELD.BRAND",
 				"ARTESIA.FIELD.ASSET DESCRIPTION",
 				"LUM.FIELD.KEYWORDS",
 				"LUM.FIELD.MASTER_FILE_NAME",
-				"LUM.FIELD.CONTENT_EDITOR"
-				
+				"LUM.FIELD.CONTENT_EDITOR",
+				"LUM.FIELD.RIGHT_TOUCHPOINTS",
+				"LUM.FIELD.RIGHT_START_DATE",
+				"LUM.FIELD.RIGHT_END_DATE",
+				"LUM.FIELD.RIGHT_GEO_LOCATION",
+				"LUM.FIELD.ACTIVATION_DATE",
+				"LUM.FIELD.DEACTIVATION_DATE"
 		};
 
 	public static final String[] USAGE_RIGHTS_FIELDS = 
@@ -70,17 +77,25 @@ public class MetadataConstants {
 				new TeamsIdentifier(SCALAR_FIELDS[5]),
 				new TeamsIdentifier(SCALAR_FIELDS[6]),
 				new TeamsIdentifier(SCALAR_FIELDS[7]),
+				new TeamsIdentifier(SCALAR_FIELDS[8]),
+				new TeamsIdentifier(SCALAR_FIELDS[9]),
+				new TeamsIdentifier(SCALAR_FIELDS[10]),
+				new TeamsIdentifier(SCALAR_FIELDS[11]),
+				new TeamsIdentifier(SCALAR_FIELDS[12]),
+				new TeamsIdentifier(SCALAR_FIELDS[13]),
+				new TeamsIdentifier(SCALAR_FIELDS[14]),
+				new TeamsIdentifier(SCALAR_FIELDS[15]),
 				new TeamsIdentifier(REGION_FIELD),
 				new TeamsIdentifier(COUNTRIES_FIELD),
-				new TeamsIdentifier(LANGUAGES_FIELD),
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[0]),
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[1]),
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[2]),
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[3]),
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[4]),
-				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[5]),
-				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[0]),
-				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[1])
+				new TeamsIdentifier(LANGUAGES_FIELD)
+//				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[0]),
+//				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[1]),
+//				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[2]),
+//				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[3]),
+//				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[4]),
+//				new TeamsIdentifier(USAGE_RIGHTS_FIELDS[5]),
+//				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[0]),
+//				new TeamsIdentifier(FILE_INFO_TAB_FIELDS[1])
 		};
 
 	public static final HashMap<String, String> ISO_LANGUAGES_MAP = new HashMap<String, String>();
