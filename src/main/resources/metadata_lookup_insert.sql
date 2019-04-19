@@ -151,6 +151,137 @@ INSERT INTO LUM_MD_CREATOR_OWNER_CAS_MAP values
 ('Regional^LATAM Marcom','Regional','LATAM Marcom'),
 ('Regional^NAFTA Marcom','Regional','NAFTA Marcom');
 
+/*
+ASSET OWNER
+*/
+
+insert into lum_md_asset_owner_lu1 values
+('Global - MarCom','Global - MarCom',''),
+('Global - Packaging designer','Global - Packaging designer',''),
+('Local - Trade marketer DACH','Local - Trade marketer DACH',''),
+('Local - Trade marketer Easter Europe','Local - Trade marketer Easter Europe',''),
+('Local - Trade marketer France Export','Local - Trade marketer France Export',''),
+('Local - Trade marketer IT-GR','Local - Trade marketer IT-GR',''),
+('Local - Trade marketer Iberia','Local - Trade marketer Iberia',''),
+('Local - Trade marketer Nordics','Local - Trade marketer Nordics',''),
+('Local - Trade marketer Russia','Local - Trade marketer Russia',''),
+('PMM','PMM',''),
+('Regional - APAC Marcom','Regional - APAC Marcom',''),
+('Regional - EMEA Creative Designer','Regional - EMEA Creative Designer',''),
+('Regional - EMEA Digital','Regional - EMEA Digital',''),
+('Regional - EMEA Marcom','Regional - EMEA Marcom',''),
+('Regional - EMEA Trade Marketing','Regional - EMEA Trade Marketing',''),
+('Regional - Greater China Marcom','Regional - Greater China Marcom',''),
+('Regional - LATAM Marcom','Regional - LATAM Marcom',''),
+('Regional - NAFTA Marcom','Regional - NAFTA Marcom','');
+
+insert into lum_md_asset_owner_lu2 values
+('Aachen','Aachen',''),
+('Anastasia.Sharapova@lumileds.com','Anastasia.Sharapova@lumileds.com',''),
+('Angela.Joerres@lumileds.com','Angela.Joerres@lumileds.com',''),
+('Chartres','Chartres',''),
+('Jack.Qian_1@lumileds.com','Jack.Qian_1@lumileds.com',''),
+('Nisha.Shakila@lumileds.com','Nisha.Shakila@lumileds.com',''),
+('Shanghai','Shanghai',''),
+('Sophie.PRUVOST@lumileds.com','Sophie.PRUVOST@lumileds.com',''),
+('Suresnes','Suresnes',''),
+('alexander.dijk@lumileds.com','alexander.dijk@lumileds.com',''),
+('ana.belen.martin.ruiz@lumileds.com','ana.belen.martin.ruiz@lumileds.com',''),
+('andrea.cava@lumileds.com','andrea.cava@lumileds.com',''),
+('andy.guo@lumileds.com','andy.guo@lumileds.com',''),
+('arnaud.goavec@lumileds.com','arnaud.goavec@lumileds.com',''),
+('barry.zhong@lumileds.com','barry.zhong@lumileds.com',''),
+('bernard.pelletier@lumileds.com','bernard.pelletier@lumileds.com',''),
+('caston.van.zwam@lumileds.com','caston.van.zwam@lumileds.com',''),
+('daniel.raimundo@Lumileds.com','daniel.raimundo@Lumileds.com',''),
+('dawn.gonzalez@lumileds.com','dawn.gonzalez@lumileds.com',''),
+('fangzhong.shen@lumileds.com','fangzhong.shen@lumileds.com',''),
+('francesco.marrone@lumileds.com','francesco.marrone@lumileds.com',''),
+('hans-alo.dohmen@lumileds.com','hans-alo.dohmen@lumileds.com',''),
+('helga.nowaczinski@lumileds.com','helga.nowaczinski@lumileds.com',''),
+('kevin.fischbach@lumileds.com','kevin.fischbach@lumileds.com',''),
+('marine.carruelle@lumileds.com','marine.carruelle@lumileds.com',''),
+('marylise.mussier@lumileds.com','marylise.mussier@lumileds.com',''),
+('miqdad.ali.khan@lumileds.com','miqdad.ali.khan@lumileds.com',''),
+('roman.derneden@lumileds.com','roman.derneden@lumileds.com',''),
+('rozenn.ledreau@lumileds.com','rozenn.ledreau@lumileds.com',''),
+('susanna.lo.tam@lumileds.com','susanna.lo.tam@lumileds.com',''),
+('thorsten.brodda@lumileds.com','thorsten.brodda@lumileds.com',''),
+('wioletta.pasionek@lumileds.com','wioletta.pasionek@lumileds.com',''),
+('wolfgang.schiene@lumileds.com','wolfgang.schiene@lumileds.com','');
+
+INSERT INTO CASCADING_TABLE_INCLUSIONS values ('LUM_MD_ASSET_OWNER_CAS_MAP');
+
+INSERT INTO CASCADING_TABLE_ELEMENTS values
+('LUM_MD_ASSET_OWNER_CAS_MAP','ASSET_OWNER_LEVEL1','LUM.DOMAIN.ASSET_OWNER_LU1','OWNER ROLE','1.00'),
+('LUM_MD_ASSET_OWNER_CAS_MAP','ASSET_OWNER_LEVEL2','LUM.DOMAIN.ASSET_OWNER_LU2','OWNER NAME','2.00');
+
+INSERT INTO LUM_MD_ASSET_OWNER_CAS_MAP values
+('Global - MarCom^Sophie.PRUVOST@lumileds.com','Global - MarCom','Sophie.PRUVOST@lumileds.com'),
+('Global - Packaging designer^arnaud.goavec@lumileds.com','Global - Packaging designer','arnaud.goavec@lumileds.com'),
+('Local - Trade marketer DACH^thorsten.brodda@lumileds.com','Local - Trade marketer DACH','thorsten.brodda@lumileds.com'),
+('Local - Trade marketer Easter Europe^wioletta.pasionek@lumileds.com','Local - Trade marketer Easter Europe','wioletta.pasionek@lumileds.com'),
+('Local - Trade marketer France Export^marylise.mussier@lumileds.com','Local - Trade marketer France Export','marylise.mussier@lumileds.com'),
+('Local - Trade marketer Iberia^ana.belen.martin.ruiz@lumileds.com','Local - Trade marketer Iberia','ana.belen.martin.ruiz@lumileds.com'),
+('Local - Trade marketer Iberia^andrea.cava@lumileds.com','Local - Trade marketer Iberia','andrea.cava@lumileds.com'),
+('Local - Trade marketer IT-GR^francesco.marrone@lumileds.com','Local - Trade marketer IT-GR','francesco.marrone@lumileds.com'),
+('Local - Trade marketer Nordics^caston.van.zwam@lumileds.com','Local - Trade marketer Nordics','caston.van.zwam@lumileds.com'),
+('Local - Trade marketer Russia^Anastasia.Sharapova@lumileds.com','Local - Trade marketer Russia','Anastasia.Sharapova@lumileds.com'),
+('Regional - APAC Marcom^susanna.lo.tam@lumileds.com','Regional - APAC Marcom','susanna.lo.tam@lumileds.com'),
+('Regional - EMEA Creative Designer^helga.nowaczinski@lumileds.com','Regional - EMEA Creative Designer','helga.nowaczinski@lumileds.com'),
+('Regional - EMEA Digital^Nisha.Shakila@lumileds.com','Regional - EMEA Digital','Nisha.Shakila@lumileds.com'),
+('Regional - EMEA Marcom^marine.carruelle@lumileds.com','Regional - EMEA Marcom','marine.carruelle@lumileds.com'),
+('Regional - EMEA Trade Marketing^Suresnes','Regional - EMEA Trade Marketing','Suresnes'),
+('Regional - Greater China Marcom^susanna.lo.tam@lumileds.com','Regional - Greater China Marcom','susanna.lo.tam@lumileds.com'),
+('Regional - LATAM Marcom^daniel.raimundo@Lumileds.com','Regional - LATAM Marcom','daniel.raimundo@Lumileds.com'),
+('Regional - NAFTA Marcom^dawn.gonzalez@lumileds.com','Regional - NAFTA Marcom','dawn.gonzalez@lumileds.com'),
+('PMM^Aachen','PMM','Aachen'),
+('PMM^Chartres','PMM','Chartres'),
+('PMM^Shanghai','PMM','Shanghai'),
+('PMM^alexander.dijk@lumileds.com','PMM','alexander.dijk@lumileds.com'),
+('PMM^andy.guo@lumileds.com','PMM','andy.guo@lumileds.com'),
+('PMM^Angela.Joerres@lumileds.com','PMM','Angela.Joerres@lumileds.com'),
+('PMM^barry.zhong@lumileds.com','PMM','barry.zhong@lumileds.com'),
+('PMM^bernard.pelletier@lumileds.com','PMM','bernard.pelletier@lumileds.com'),
+('PMM^fangzhong.shen@lumileds.com','PMM','fangzhong.shen@lumileds.com'),
+('PMM^hans-alo.dohmen@lumileds.com','PMM','hans-alo.dohmen@lumileds.com'),
+('PMM^Jack.Qian_1@lumileds.com','PMM','Jack.Qian_1@lumileds.com'),
+('PMM^kevin.fischbach@lumileds.com','PMM','kevin.fischbach@lumileds.com'),
+('PMM^miqdad.ali.khan@lumileds.com','PMM','miqdad.ali.khan@lumileds.com'),
+('PMM^roman.derneden@lumileds.com','PMM','roman.derneden@lumileds.com'),
+('PMM^rozenn.ledreau@lumileds.com','PMM','rozenn.ledreau@lumileds.com'),
+('PMM^wolfgang.schiene@lumileds.com','PMM','wolfgang.schiene@lumileds.com');
+/*
+First point of contact
+*/
+
+insert into lum_md_first_poc_lu values 
+('Alexandra.Ganser@lumileds.com','Alexandra.Ganser@lumileds.com',''),
+('Anastasia.Sharapova@lumileds.com','Anastasia.Sharapova@lumileds.com',''),
+('Angela.Joerres@lumileds.com','Angela.Joerres@lumileds.com',''),
+('Christopher.Kurz@lumileds.com','Christopher.Kurz@lumileds.com',''),
+('Giulia.Ewald@lumileds.com','Giulia.Ewald@lumileds.com',''),
+('Grit.Piepers@lumileds.com','Grit.Piepers@lumileds.com',''),
+('Lisa.Saloewski@lumileds.com','Lisa.Saloewski@lumileds.com',''),
+('Nadine.Rothhanns@lumileds.com','Nadine.Rothhanns@lumileds.com',''),
+('Nisha.Shakila@lumileds.com','Nisha.Shakila@lumileds.com',''),
+('Rasmus.Klinge@lumileds.com','Rasmus.Klinge@lumileds.com',''),
+('Sophie.PRUVOST@lumileds.com','Sophie.PRUVOST@lumileds.com',''),
+('ana.belen.martin.ruiz@lumileds.com','ana.belen.martin.ruiz@lumileds.com',''),
+('andrea.cava@lumileds.com','andrea.cava@lumileds.com',''),
+('arnaud.goavec@lumileds.com','arnaud.goavec@lumileds.com',''),
+('caston.van.zwam@lumileds.com','caston.van.zwam@lumileds.com',''),
+('daniel.raimundo@Lumileds.com','daniel.raimundo@Lumileds.com',''),
+('dawn.gonzalez@lumileds.com','dawn.gonzalez@lumileds.com',''),
+('francesco.marrone@lumileds.com','francesco.marrone@lumileds.com',''),
+('helga.nowaczinski@lumileds.com','helga.nowaczinski@lumileds.com',''),
+('marine.carruelle@lumileds.com','marine.carruelle@lumileds.com',''),
+('marylise.mussier@lumileds.com','marylise.mussier@lumileds.com',''),
+('susanna.lo.tam@lumileds.com','susanna.lo.tam@lumileds.com',''),
+('thorsten.brodda@lumileds.com','thorsten.brodda@lumileds.com',''),
+('wioletta.pasionek@lumileds.com','wioletta.pasionek@lumileds.com','');
+
+
 
 /*
  Factory
@@ -295,7 +426,7 @@ INSERT INTO LUM_MD_PKG_CLUSTER_LU2 (ID, VALUE, DESCRIPTION) values
 
 --CASCADING ENTRIES
 
-INSERT INTO CASCADING_TABLE_INCLUSIONS values ('LUM_MD_CREATOR_OWNER_CAS_MAP');
+INSERT INTO CASCADING_TABLE_INCLUSIONS values ('LUM_MD_PACKAGE_OWNER_CAS_MAP');
 
 INSERT INTO CASCADING_TABLE_ELEMENTS values
 ('LUM_MD_PKG_CLUSTER_CAS_MAP','PKG_CLUSTER_LEVEL1','LUM.DOMAIN.PKG_CLUSTER_LU1','LEVEL ONE','1.00'),
