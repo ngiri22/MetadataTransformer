@@ -29,7 +29,11 @@ INSERT INTO LUM_MD_ASSET_TYPE_LU (ID, VALUE, DESCRIPTION) values
 ('Social Media','Social Media',''),
 ('Test Result','Test Result',''),
 ('Tutorial Video','Tutorial Video',''),
-('Web Banner','Web Banner','');
+('Web Banner','Web Banner',''),
+('Data Sheet','Data Sheet',''),
+('Data Sheet Customized','Data Sheet Customized',''),
+('Application Brief','Application Brief',''),
+('Product Brief','Product Brief','');
 
 /*
  BRAND 
@@ -155,25 +159,25 @@ INSERT INTO LUM_MD_CREATOR_OWNER_CAS_MAP values
 ASSET OWNER
 */
 
-insert into lum_md_asset_owner_lu1 values
-('Global - MarCom','Global - MarCom',''),
+Insert into lum_md_asset_owner_lu1 values
+('Global_MarCom','Global - MarCom',''),
 ('Global - Packaging designer','Global - Packaging designer',''),
-('Local - Trade marketer DACH','Local - Trade marketer DACH',''),
-('Local - Trade marketer Easter Europe','Local - Trade marketer Easter Europe',''),
-('Local - Trade marketer France Export','Local - Trade marketer France Export',''),
-('Local - Trade marketer IT-GR','Local - Trade marketer IT-GR',''),
-('Local - Trade marketer Iberia','Local - Trade marketer Iberia',''),
-('Local - Trade marketer Nordics','Local - Trade marketer Nordics',''),
-('Local - Trade marketer Russia','Local - Trade marketer Russia',''),
+('Local_Trade_marketer_DACH','Local - Trade marketer DACH',''),
+('Local_Trade_marketer_Eastern_Europe','Local - Trade marketer Eastern Europe',''),
+('Local_Trade_marketer_France_Export','Local - Trade marketer France Export',''),
+('Local_Trade_marketer_IT_GR','Local - Trade marketer IT-GR',''),
+('Local_Trade_marketer_Iberia','Local - Trade marketer Iberia',''),
+('Local_Trade_marketer_Nordics','Local - Trade marketer Nordics',''),
+('Local_Trade_marketer_Russia','Local - Trade marketer Russia',''),
 ('PMM','PMM',''),
-('Regional - APAC Marcom','Regional - APAC Marcom',''),
-('Regional - EMEA Creative Designer','Regional - EMEA Creative Designer',''),
-('Regional - EMEA Digital','Regional - EMEA Digital',''),
-('Regional - EMEA Marcom','Regional - EMEA Marcom',''),
-('Regional - EMEA Trade Marketing','Regional - EMEA Trade Marketing',''),
-('Regional - Greater China Marcom','Regional - Greater China Marcom',''),
-('Regional - LATAM Marcom','Regional - LATAM Marcom',''),
-('Regional - NAFTA Marcom','Regional - NAFTA Marcom','');
+('Regional_APAC_Marcom','Regional - APAC Marcom',''),
+('Regional_EMEA_Creative_Designer','Regional - EMEA Creative Designer',''),
+('Regional_EMEA_Digital','Regional - EMEA Digital',''),
+('Regional_EMEA_Marcom','Regional - EMEA Marcom',''),
+('Regional_EMEA_Trade_Marketing','Regional - EMEA Trade Marketing',''),
+('Regional_Greater_China_Marcom','Regional - Greater China Marcom',''),
+('Regional_LATAM_Marcom','Regional - LATAM Marcom',''),
+('Regional_NAFTA_Marcom','Regional - NAFTA Marcom','');
 
 insert into lum_md_asset_owner_lu2 values
 ('Aachen','Aachen',''),
@@ -217,24 +221,24 @@ INSERT INTO CASCADING_TABLE_ELEMENTS values
 ('LUM_MD_ASSET_OWNER_CAS_MAP','ASSET_OWNER_LEVEL2','LUM.DOMAIN.ASSET_OWNER_LU2','OWNER NAME','2.00');
 
 INSERT INTO LUM_MD_ASSET_OWNER_CAS_MAP values
-('Global - MarCom^Sophie.PRUVOST@lumileds.com','Global - MarCom','Sophie.PRUVOST@lumileds.com'),
-('Global - Packaging designer^arnaud.goavec@lumileds.com','Global - Packaging designer','arnaud.goavec@lumileds.com'),
-('Local - Trade marketer DACH^thorsten.brodda@lumileds.com','Local - Trade marketer DACH','thorsten.brodda@lumileds.com'),
-('Local - Trade marketer Easter Europe^wioletta.pasionek@lumileds.com','Local - Trade marketer Easter Europe','wioletta.pasionek@lumileds.com'),
-('Local - Trade marketer France Export^marylise.mussier@lumileds.com','Local - Trade marketer France Export','marylise.mussier@lumileds.com'),
-('Local - Trade marketer Iberia^ana.belen.martin.ruiz@lumileds.com','Local - Trade marketer Iberia','ana.belen.martin.ruiz@lumileds.com'),
-('Local - Trade marketer Iberia^andrea.cava@lumileds.com','Local - Trade marketer Iberia','andrea.cava@lumileds.com'),
-('Local - Trade marketer IT-GR^francesco.marrone@lumileds.com','Local - Trade marketer IT-GR','francesco.marrone@lumileds.com'),
-('Local - Trade marketer Nordics^caston.van.zwam@lumileds.com','Local - Trade marketer Nordics','caston.van.zwam@lumileds.com'),
-('Local - Trade marketer Russia^Anastasia.Sharapova@lumileds.com','Local - Trade marketer Russia','Anastasia.Sharapova@lumileds.com'),
-('Regional - APAC Marcom^susanna.lo.tam@lumileds.com','Regional - APAC Marcom','susanna.lo.tam@lumileds.com'),
-('Regional - EMEA Creative Designer^helga.nowaczinski@lumileds.com','Regional - EMEA Creative Designer','helga.nowaczinski@lumileds.com'),
-('Regional - EMEA Digital^Nisha.Shakila@lumileds.com','Regional - EMEA Digital','Nisha.Shakila@lumileds.com'),
-('Regional - EMEA Marcom^marine.carruelle@lumileds.com','Regional - EMEA Marcom','marine.carruelle@lumileds.com'),
-('Regional - EMEA Trade Marketing^Suresnes','Regional - EMEA Trade Marketing','Suresnes'),
-('Regional - Greater China Marcom^susanna.lo.tam@lumileds.com','Regional - Greater China Marcom','susanna.lo.tam@lumileds.com'),
-('Regional - LATAM Marcom^daniel.raimundo@Lumileds.com','Regional - LATAM Marcom','daniel.raimundo@Lumileds.com'),
-('Regional - NAFTA Marcom^dawn.gonzalez@lumileds.com','Regional - NAFTA Marcom','dawn.gonzalez@lumileds.com'),
+('Global_MarCom^Sophie.PRUVOST@lumileds.com','Global_MarCom','Sophie.PRUVOST@lumileds.com'),
+('Global_Packaging_designer^arnaud.goavec@lumileds.com','Global_Packaging_designer','arnaud.goavec@lumileds.com'),
+('Local_Trade_marketer_DACH^thorsten.brodda@lumileds.com','Local_Trade_marketer_DACH','thorsten.brodda@lumileds.com'),
+('Local_Trade_marketer_Easter_Europe^wioletta.pasionek@lumileds.com','Local_Trade_marketer_Easter_Europe','wioletta.pasionek@lumileds.com'),
+('Local_Trade_marketer_France_Export^marylise.mussier@lumileds.com','Local_Trade_marketer_France_Export','marylise.mussier@lumileds.com'),
+('Local_Trade_marketer_Iberia^ana.belen.martin.ruiz@lumileds.com','Local_Trade_marketer_Iberia','ana.belen.martin.ruiz@lumileds.com'),
+('Local_Trade_marketer_Iberia^andrea.cava@lumileds.com','Local_Trade_marketer_Iberia','andrea.cava@lumileds.com'),
+('Local_Trade_marketer_IT_GR^francesco.marrone@lumileds.com','Local_Trade_marketer_IT_GR','francesco.marrone@lumileds.com'),
+('Local_Trade_marketer_Nordics^caston.van.zwam@lumileds.com','Local_Trade_marketer_Nordics','caston.van.zwam@lumileds.com'),
+('Local_Trade_marketer_Russia^Anastasia.Sharapova@lumileds.com','Local_Trade_marketer_Russia','Anastasia.Sharapova@lumileds.com'),
+('Regional_APAC_Marcom^susanna.lo.tam@lumileds.com','Regional_APAC_Marcom','susanna.lo.tam@lumileds.com'),
+('Regional_EMEA_Creative_Designer^helga.nowaczinski@lumileds.com','Regional_EMEA_Creative_Designer','helga.nowaczinski@lumileds.com'),
+('Regional_EMEA_Digital^Nisha.Shakila@lumileds.com','Regional_EMEA_Digital','Nisha.Shakila@lumileds.com'),
+('Regional_EMEA_Marcom^marine.carruelle@lumileds.com','Regional_EMEA_Marcom','marine.carruelle@lumileds.com'),
+('Regional_EMEA_Trade_Marketing^Suresnes','Regional_EMEA_Trade_Marketing','Suresnes'),
+('Regional_Greater_China_Marcom^susanna.lo.tam@lumileds.com','Regional_Greater_China_Marcom','susanna.lo.tam@lumileds.com'),
+('Regional_LATAM_Marcom^daniel.raimundo@Lumileds.com','Regional_LATAM_Marcom','daniel.raimundo@Lumileds.com'),
+('Regional_NAFTA_Marcom^dawn.gonzalez@lumileds.com','Regional_NAFTA_Marcom','dawn.gonzalez@lumileds.com'),
 ('PMM^Aachen','PMM','Aachen'),
 ('PMM^Chartres','PMM','Chartres'),
 ('PMM^Shanghai','PMM','Shanghai'),
@@ -395,6 +399,36 @@ INSERT INTO LUM_MD_PPAP_LEVEL_LU (ID, VALUE, DESCRIPTION) values
 ('3','3',''),
 ('4','4',''),
 ('5','5','');
+
+/*
+SEGMENT
+*/
+INSERT INTO LUM_MD_INDUSTRIAL_SEGMENT_LU (ID, VALUE, DESCRIPTION) values
+('Automotive','Automotive',''),
+('Corporate','Corporate',''),
+('Illumination','Illumination',''),
+('LED Solutions','LED Solutions',''),
+('Specialty','Specialty','');
+
+/*
+TECHNICAL APPLICATION
+*/
+
+INSERT INTO LUM_MD_IND_TECH_APPN_LU (ID, VALUE, DESCRIPTION) values
+('Adaptive driving beam','Adaptive driving beam',''),
+('Back-up light','Back-up light',''),
+('Daytime running lights','Daytime running lights (DRL, front position, park)',''),
+('Front fog','Front fog',''),
+('Front position light','Front position light',''),
+('Front turn lamp','Front turn lamp',''),
+('Front turn signal','Front turn signal',''),
+('Hazard light','Hazard light',''),
+('High beam','High beam',''),
+('I-Max','I-Max',''),
+('Low beam','Low beam',''),
+('Rear fog lamp','Rear fog lamp',''),
+('Rear turn lamp','Rear turn lamp',''),
+('Spot light','Spot light','');
 
 /*
  Packaging Cluster - CASCADING
