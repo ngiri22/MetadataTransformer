@@ -33,7 +33,10 @@ INSERT INTO LUM_MD_ASSET_TYPE_LU (ID, VALUE, DESCRIPTION) values
 ('Data Sheet','Data Sheet',''),
 ('Data Sheet Customized','Data Sheet Customized',''),
 ('Application Brief','Application Brief',''),
-('Product Brief','Product Brief','');
+('Product Brief','Product Brief',''),
+('Marking Sheet','Marking Sheet',''),
+('Packaging Sheet','Packaging Sheet',''),
+('Ray File','Ray File','');
 
 /*
  BRAND 
@@ -46,6 +49,17 @@ INSERT INTO LUM_MD_BRAND_LU (ID, VALUE, DESCRIPTION) values
 ('OES','OES',''),
 ('Philips','Philips',''),
 ('Independent','Independent','');
+
+/*
+PUBLISH TO MICROSITE (DIGITAL HUB)
+*/
+
+INSERT INTO LUM_MD_PUB_TO_MICROSITE_LU (ID, VALUE, DESCRIPTION) values
+('Customer Portal AM','Customer Portal AM',''),
+('Customer Portal OEM','Customer Portal OEM',''),
+('Factory Portal','Factory Portal',''),
+('R&D Portal','R&D Portal','');
+
 
 /*
 Languages
@@ -209,7 +223,7 @@ insert into lum_md_asset_owner_lu2 values
 ('miqdad.ali.khan@lumileds.com','miqdad.ali.khan@lumileds.com',''),
 ('roman.derneden@lumileds.com','roman.derneden@lumileds.com',''),
 ('rozenn.ledreau@lumileds.com','rozenn.ledreau@lumileds.com',''),
-('susanna.lo.tam@lumileds.com','susanna.lo.tam@lumileds.com',''),
+('Jasmine.Huang@lumileds.com','Jasmine.Huang@lumileds.com',''),
 ('thorsten.brodda@lumileds.com','thorsten.brodda@lumileds.com',''),
 ('wioletta.pasionek@lumileds.com','wioletta.pasionek@lumileds.com',''),
 ('wolfgang.schiene@lumileds.com','wolfgang.schiene@lumileds.com','');
@@ -231,12 +245,12 @@ INSERT INTO LUM_MD_ASSET_OWNER_CAS_MAP values
 ('Local_Trade_marketer_IT_GR^francesco.marrone@lumileds.com','Local_Trade_marketer_IT_GR','francesco.marrone@lumileds.com'),
 ('Local_Trade_marketer_Nordics^caston.van.zwam@lumileds.com','Local_Trade_marketer_Nordics','caston.van.zwam@lumileds.com'),
 ('Local_Trade_marketer_Russia^Anastasia.Sharapova@lumileds.com','Local_Trade_marketer_Russia','Anastasia.Sharapova@lumileds.com'),
-('Regional_APAC_Marcom^susanna.lo.tam@lumileds.com','Regional_APAC_Marcom','susanna.lo.tam@lumileds.com'),
+('Regional_APAC_Marcom^Jasmine.Huang@lumileds.com','Regional_APAC_Marcom','Jasmine.Huang@lumileds.com'),
 ('Regional_EMEA_Creative_Designer^helga.nowaczinski@lumileds.com','Regional_EMEA_Creative_Designer','helga.nowaczinski@lumileds.com'),
 ('Regional_EMEA_Digital^Nisha.Shakila@lumileds.com','Regional_EMEA_Digital','Nisha.Shakila@lumileds.com'),
 ('Regional_EMEA_Marcom^marine.carruelle@lumileds.com','Regional_EMEA_Marcom','marine.carruelle@lumileds.com'),
 ('Regional_EMEA_Trade_Marketing^Suresnes','Regional_EMEA_Trade_Marketing','Suresnes'),
-('Regional_Greater_China_Marcom^susanna.lo.tam@lumileds.com','Regional_Greater_China_Marcom','susanna.lo.tam@lumileds.com'),
+('Regional_Greater_China_Marcom^Jasmine.Huang@lumileds.com','Regional_Greater_China_Marcom','Jasmine.Huang@lumileds.com'),
 ('Regional_LATAM_Marcom^daniel.raimundo@Lumileds.com','Regional_LATAM_Marcom','daniel.raimundo@Lumileds.com'),
 ('Regional_NAFTA_Marcom^dawn.gonzalez@lumileds.com','Regional_NAFTA_Marcom','dawn.gonzalez@lumileds.com'),
 ('PMM^Aachen','PMM','Aachen'),
@@ -316,7 +330,7 @@ INSERT INTO LUM_MD_MANUFACTURER_LU (ID, VALUE, DESCRIPTION) values
 ('CEC Industries Ltd.','CEC Industries Ltd.',''),
 ('Mycarr Lighting Technology Co Ltd','Mycarr Lighting Technology Co Ltd',''),
 ('Autolite (India) Limited','Autolite (India) Limited',''),
-('HESHAN GMY LIGHTING  AND ELECTRICAL','HESHAN GMY LIGHTING  AND ELECTRICAL',''),
+('HESHAN GMY LIGHTINGÂ Â AND ELECTRICAL','HESHAN GMY LIGHTINGÂ Â AND ELECTRICAL',''),
 ('SHANTOU JINMAO LIGHTING','SHANTOU JINMAO LIGHTING',''),
 ('OIGAWA ELECTRIC Co., Ltd.','OIGAWA ELECTRIC Co., Ltd.',''),
 ('Hana Semiconductor International','Hana Semiconductor International',''),
@@ -428,7 +442,17 @@ INSERT INTO LUM_MD_IND_TECH_APPN_LU (ID, VALUE, DESCRIPTION) values
 ('Low beam','Low beam',''),
 ('Rear fog lamp','Rear fog lamp',''),
 ('Rear turn lamp','Rear turn lamp',''),
-('Spot light','Spot light','');
+('Spot light','Spot light',''),
+('Stop light','Stop light',''),
+('Tail light','Tail light',''),
+('Rear turn signal','Rear turn signal',''),
+('Side marker','Side marker',''),
+('License Plate','License Plate',''),
+('Backup/Reverse','Backup/Reverse',''),
+('Mirror/Side Repeater','Mirror/Side Repeater',''),
+('Cornering light','Cornering light',''),
+('Static Bending','Static Bending',''),
+('Matrix Beam','Matrix Beam','');
 
 /*
  Packaging Cluster - CASCADING
@@ -615,7 +639,7 @@ INSERT INTO LUM_MD_SOLD_TO_PARTY_LU (ID, VALUE, DESCRIPTION) values
 (N'Chongqing Zexiang Trade Co., Ltd',N'Chongqing Zexiang Trade Co., Ltd',''),
 (N'Clark Material',N'Clark Material',''),
 (N'DABEL SA',N'DABEL SA',''),
-(N'DAF CAMINHÕES BRASIL INDÚSTRIA LTDA',N'DAF CAMINHÕES BRASIL INDÚSTRIA LTDA',''),
+(N'DAF CAMINHÃ•ES BRASIL INDÃšSTRIA LTDA',N'DAF CAMINHÃ•ES BRASIL INDÃšSTRIA LTDA',''),
 (N'DAIWA MOTOR CORPORATION',N'DAIWA MOTOR CORPORATION',''),
 (N'DECOFINMEX SA DE CV',N'DECOFINMEX SA DE CV',''),
 (N'DELTEC Automotive GmbH & Co. KG',N'DELTEC Automotive GmbH & Co. KG',''),
@@ -636,7 +660,7 @@ INSERT INTO LUM_MD_SOLD_TO_PARTY_LU (ID, VALUE, DESCRIPTION) values
 (N'FARBA OTOMOTIV AYDINLATMA',N'FARBA OTOMOTIV AYDINLATMA',''),
 (N'FAROIS VINCO IND E COM LTDA',N'FAROIS VINCO IND E COM LTDA',''),
 (N'FEDERAL MOGUL IND AUTOPECAS LTDA',N'FEDERAL MOGUL IND AUTOPECAS LTDA',''),
-(N'FEDERAL MOGUL IND DE AUTOPEÇAS LTDA',N'FEDERAL MOGUL IND DE AUTOPEÇAS LTDA',''),
+(N'FEDERAL MOGUL IND DE AUTOPEÃ‡AS LTDA',N'FEDERAL MOGUL IND DE AUTOPEÃ‡AS LTDA',''),
 (N'FEP Fahrzeugelektrik Pirna',N'FEP Fahrzeugelektrik Pirna',''),
 (N'FIEM INDUSTRIES Ltd',N'FIEM INDUSTRIES Ltd',''),
 (N'FLEXNGATE BRASIL INDUSTRIAL LTDA',N'FLEXNGATE BRASIL INDUSTRIAL LTDA',''),
@@ -658,7 +682,7 @@ INSERT INTO LUM_MD_SOLD_TO_PARTY_LU (ID, VALUE, DESCRIPTION) values
 (N'GENERAL MOTORS DO BRASIL LTDA',N'GENERAL MOTORS DO BRASIL LTDA',''),
 (N'GENESIS DEVICES E EQUI. IND. E COM.',N'GENESIS DEVICES E EQUI. IND. E COM.',''),
 (N'GOLIGHT INC.',N'GOLIGHT INC.',''),
-(N'GRUPO ANTOLIN BESANÇON',N'GRUPO ANTOLIN BESANÇON',''),
+(N'GRUPO ANTOLIN BESANÃ‡ON',N'GRUPO ANTOLIN BESANÃ‡ON',''),
 (N'GUANGZHOU KOITO AUTOMOTIVE',N'GUANGZHOU KOITO AUTOMOTIVE',''),
 (N'GUREAK LANEAN, S.A',N'GUREAK LANEAN, S.A',''),
 (N'Grace Bright Enterprise Ltd.',N'Grace Bright Enterprise Ltd.',''),
@@ -691,7 +715,7 @@ INSERT INTO LUM_MD_SOLD_TO_PARTY_LU (ID, VALUE, DESCRIPTION) values
 (N'Huf do Brasil Ltda',N'Huf do Brasil Ltda',''),
 (N'Hyundai I.H.L Coporation.co.Ltd',N'Hyundai I.H.L Coporation.co.Ltd',''),
 (N'Hyundai Mobis Mexico S de RL de CV',N'Hyundai Mobis Mexico S de RL de CV',''),
-(N'Häberle Laser- u. Feinwerktechnik',N'Häberle Laser- u. Feinwerktechnik',''),
+(N'HÃ¤berle Laser- u. Feinwerktechnik',N'HÃ¤berle Laser- u. Feinwerktechnik',''),
 (N'ICHIKOH INDUSTRIES (Thailand)',N'ICHIKOH INDUSTRIES (Thailand)',''),
 (N'ICHIKOH INDUSTRIES,L',N'ICHIKOH INDUSTRIES,L',''),
 (N'ICHIKOH(MALAYSIA) SDN. BHD.',N'ICHIKOH(MALAYSIA) SDN. BHD.',''),
@@ -811,10 +835,10 @@ INSERT INTO LUM_MD_SOLD_TO_PARTY_LU (ID, VALUE, DESCRIPTION) values
 (N'ONE TIME PARTY OVERSEAS',N'ONE TIME PARTY OVERSEAS',''),
 (N'ONE TIME PARTY SINGAPORE',N'ONE TIME PARTY SINGAPORE',''),
 (N'ONE TIME PARTY UNITED STATES',N'ONE TIME PARTY UNITED STATES',''),
-(N'ONE TIME PARTY BULGARIA',N'ONE TIME PARTY BULGARIA',''),
-(N'ONE TIME PARTY CZECHIA',N'ONE TIME PARTY CZECHIA',''),
-(N'ONE TIME PARTY MEXICO',N'ONE TIME PARTY MEXICO',''),
-(N'ONE TIME PARTY TURKEY',N'ONE TIME PARTY TURKEY',''),
+(N'ONEÂ TIMEÂ PARTYÂ BULGARIA',N'ONEÂ TIMEÂ PARTYÂ BULGARIA',''),
+(N'ONEÂ TIMEÂ PARTYÂ CZECHIA',N'ONEÂ TIMEÂ PARTYÂ CZECHIA',''),
+(N'ONEÂ TIMEÂ PARTYÂ MEXICO',N'ONEÂ TIMEÂ PARTYÂ MEXICO',''),
+(N'ONEÂ TIMEÂ PARTYÂ TURKEY',N'ONEÂ TIMEÂ PARTYÂ TURKEY',''),
 (N'ORION Electronics Ltd.',N'ORION Electronics Ltd.',''),
 (N'Oechsler AG',N'Oechsler AG',''),
 (N'Olsa Poland Sp. z o.o',N'Olsa Poland Sp. z o.o',''),
@@ -925,7 +949,7 @@ INSERT INTO LUM_MD_SOLD_TO_PARTY_LU (ID, VALUE, DESCRIPTION) values
 (N'VOSLA GmbH',N'VOSLA GmbH',''),
 (N'VTQ Videotronik GmbH',N'VTQ Videotronik GmbH',''),
 (N'Valeo Ichikoh(China) Auto lighting',N'Valeo Ichikoh(China) Auto lighting',''),
-(N'Valeo Iluminación S.A.',N'Valeo Iluminación S.A.',''),
+(N'Valeo IluminaciÃ³n S.A.',N'Valeo IluminaciÃ³n S.A.',''),
 (N'Valeo Lighting Injection S.A.',N'Valeo Lighting Injection S.A.',''),
 (N'Valeo Sylvania',N'Valeo Sylvania',''),
 (N'Varroc Lighting Systems s.r.o.',N'Varroc Lighting Systems s.r.o.',''),
@@ -962,8 +986,8 @@ INSERT INTO LUM_MD_SOLD_TO_PARTY_LU (ID, VALUE, DESCRIPTION) values
 (N'odelo Deutschland GmbH',N'odelo Deutschland GmbH',''),
 (N'odelo GmbH',N'odelo GmbH',''),
 (N'odelo Slovenija d.o.o.',N'odelo Slovenija d.o.o.',''),
-(N'广东嘉利车灯有限公司',N'广东嘉利车灯有限公司',''),
-(N'江苏富新商贸有限公司',N'江苏富新商贸有限公司','');
+(N'å¹¿ä¸œå˜‰åˆ©è½¦ç�¯æœ‰é™�å…¬å�¸',N'å¹¿ä¸œå˜‰åˆ©è½¦ç�¯æœ‰é™�å…¬å�¸',''),
+(N'æ±Ÿè‹�å¯Œæ–°å•†è´¸æœ‰é™�å…¬å�¸',N'æ±Ÿè‹�å¯Œæ–°å•†è´¸æœ‰é™�å…¬å�¸','');
 
 INSERT INTO CASCADING_TABLE_INCLUSIONS values ('LUM_MD_SOLD_TO_CUS_CAS_MAP');
 
@@ -1022,7 +1046,7 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 (N'Automotive Lighting^Zollner Elektronik AG','Automotive Lighting',N'Zollner Elektronik AG'),
 (N'FEDERAL MOGUL^Federal Mogul Corp.','FEDERAL MOGUL',N'Federal Mogul Corp.'),
 (N'FEDERAL MOGUL^FEDERAL MOGUL IND AUTOPECAS LTDA','FEDERAL MOGUL',N'FEDERAL MOGUL IND AUTOPECAS LTDA'),
-(N'FEDERAL MOGUL^FEDERAL MOGUL IND DE AUTOPEÇAS LTDA','FEDERAL MOGUL',N'FEDERAL MOGUL IND DE AUTOPEÇAS LTDA'),
+(N'FEDERAL MOGUL^FEDERAL MOGUL IND DE AUTOPEÃ‡AS LTDA','FEDERAL MOGUL',N'FEDERAL MOGUL IND DE AUTOPEÃ‡AS LTDA'),
 (N'Flex-N-Gate^FLEXNGATE BRASIL INDUSTRIAL LTDA','Flex-N-Gate',N'FLEXNGATE BRASIL INDUSTRIAL LTDA'),
 (N'Flex-N-Gate^Future Electronics, Inc.','Flex-N-Gate',N'Future Electronics, Inc.'),
 (N'Flex-N-Gate^SIIX U.S.A. Corporation','Flex-N-Gate',N'SIIX U.S.A. Corporation'),
@@ -1124,7 +1148,7 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 (N'MOBIS^KUMHO HT, INC','MOBIS',N'KUMHO HT, INC'),
 (N'MOBIS^Mobis-Hyundai Co.LTD.','MOBIS',N'Mobis-Hyundai Co.LTD.'),
 (N'MOBIS^Y.M.P. Co., Ltd','MOBIS',N'Y.M.P. Co., Ltd'),
-(N'MOBIS^江苏富新商贸有限公司','MOBIS',N'江苏富新商贸有限公司'),
+(N'MOBIS^æ±Ÿè‹�å¯Œæ–°å•†è´¸æœ‰é™�å…¬å�¸','MOBIS',N'æ±Ÿè‹�å¯Œæ–°å•†è´¸æœ‰é™�å…¬å�¸'),
 (N'No Key Account^3.Ausland F&A','No Key Account',N'3.Ausland F&A'),
 (N'No Key Account^Advantage Engineering','No Key Account',N'Advantage Engineering'),
 (N'No Key Account^AES Automotive Inc','No Key Account',N'AES Automotive Inc'),
@@ -1146,7 +1170,7 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 (N'No Key Account^CONG TY TNHH SAN XUAT TAN PHAT(TAFACO)','No Key Account',N'CONG TY TNHH SAN XUAT TAN PHAT(TAFACO)'),
 (N'No Key Account^CONG TY TNHH TRIOM VIET NAM','No Key Account',N'CONG TY TNHH TRIOM VIET NAM'),
 (N'No Key Account^CPD Debitoren Inland','No Key Account',N'CPD Debitoren Inland'),
-(N'No Key Account^DAF CAMINHÕES BRASIL INDÚSTRIA LTDA','No Key Account',N'DAF CAMINHÕES BRASIL INDÚSTRIA LTDA'),
+(N'No Key Account^DAF CAMINHÃ•ES BRASIL INDÃšSTRIA LTDA','No Key Account',N'DAF CAMINHÃ•ES BRASIL INDÃšSTRIA LTDA'),
 (N'No Key Account^DAIWA MOTOR CORPORATION','No Key Account',N'DAIWA MOTOR CORPORATION'),
 (N'No Key Account^DELVIS products GmbH','No Key Account',N'DELVIS products GmbH'),
 (N'No Key Account^Deport','No Key Account',N'Deport'),
@@ -1229,9 +1253,9 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 (N'No Key Account^ONE TIME PARTY ITALY','No Key Account',N'ONE TIME PARTY ITALY'),
 (N'No Key Account^ONE TIME PARTY JAPAN','No Key Account',N'ONE TIME PARTY JAPAN'),
 (N'No Key Account^ONE TIME PARTY OVERSEAS','No Key Account',N'ONE TIME PARTY OVERSEAS'),
-(N'No Key Account^ONE TIME PARTY BULGARIA','No Key Account',N'ONE TIME PARTY BULGARIA'),
-(N'No Key Account^ONE TIME PARTY CZECHIA','No Key Account',N'ONE TIME PARTY CZECHIA'),
-(N'No Key Account^ONE TIME PARTY TURKEY','No Key Account',N'ONE TIME PARTY TURKEY'),
+(N'No Key Account^ONEÂ TIMEÂ PARTYÂ BULGARIA','No Key Account',N'ONEÂ TIMEÂ PARTYÂ BULGARIA'),
+(N'No Key Account^ONEÂ TIMEÂ PARTYÂ CZECHIA','No Key Account',N'ONEÂ TIMEÂ PARTYÂ CZECHIA'),
+(N'No Key Account^ONEÂ TIMEÂ PARTYÂ TURKEY','No Key Account',N'ONEÂ TIMEÂ PARTYÂ TURKEY'),
 (N'No Key Account^ORION Electronics Ltd.','No Key Account',N'ORION Electronics Ltd.'),
 (N'No Key Account^Panasonic Corporation','No Key Account',N'Panasonic Corporation'),
 (N'No Key Account^Philips Lighting','No Key Account',N'Philips Lighting'),
@@ -1290,7 +1314,7 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 (N'No Key Account^Zhejiang Jiali(Lishui) Industry Crop.','No Key Account',N'Zhejiang Jiali(Lishui) Industry Crop.'),
 (N'No Key Account^Zollner Electronics Costa Rica Ltd','No Key Account',N'Zollner Electronics Costa Rica Ltd'),
 (N'No Key Account^Zu Yih Technology Co','No Key Account',N'Zu Yih Technology Co'),
-(N'No Key Account^广东嘉利车灯有限公司','No Key Account',N'广东嘉利车灯有限公司'),
+(N'No Key Account^å¹¿ä¸œå˜‰åˆ©è½¦ç�¯æœ‰é™�å…¬å�¸','No Key Account',N'å¹¿ä¸œå˜‰åˆ©è½¦ç�¯æœ‰é™�å…¬å�¸'),
 (N'Not assigned^-','Not assigned',N'-'),
 (N'Not assigned^AMPAS INDUSTRIES CO.,LTD.','Not assigned',N'AMPAS INDUSTRIES CO.,LTD.'),
 (N'Not assigned^CAF Korea Co., Ltd.','Not assigned',N'CAF Korea Co., Ltd.'),
@@ -1307,7 +1331,7 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 (N'ODELO / BAYRAKTARLAR^Aygersan','ODELO / BAYRAKTARLAR',N'Aygersan'),
 (N'ODELO / BAYRAKTARLAR^FARBA OTOMOTIV AYDINLATMA','ODELO / BAYRAKTARLAR',N'FARBA OTOMOTIV AYDINLATMA'),
 (N'ODELO / BAYRAKTARLAR^Flextronics International KFT','ODELO / BAYRAKTARLAR',N'Flextronics International KFT'),
-(N'ODELO / BAYRAKTARLAR^Häberle Laser- u. Feinwerktechnik','ODELO / BAYRAKTARLAR',N'Häberle Laser- u. Feinwerktechnik'),
+(N'ODELO / BAYRAKTARLAR^HÃ¤berle Laser- u. Feinwerktechnik','ODELO / BAYRAKTARLAR',N'HÃ¤berle Laser- u. Feinwerktechnik'),
 (N'ODELO / BAYRAKTARLAR^Nanjing Sanming Trade Co., Ltd','ODELO / BAYRAKTARLAR',N'Nanjing Sanming Trade Co., Ltd'),
 (N'ODELO / BAYRAKTARLAR^odelo Deutschland GmbH','ODELO / BAYRAKTARLAR',N'odelo Deutschland GmbH'),
 (N'ODELO / BAYRAKTARLAR^odelo GmbH','ODELO / BAYRAKTARLAR',N'odelo GmbH'),
@@ -1333,7 +1357,7 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 (N'PLL (incl. Future)^ONE TIME PARTY OVERSEAS','PLL (incl. Future)',N'ONE TIME PARTY OVERSEAS'),
 (N'PLL (incl. Future)^ONE TIME PARTY SINGAPORE','PLL (incl. Future)',N'ONE TIME PARTY SINGAPORE'),
 (N'PLL (incl. Future)^ONE TIME PARTY UNITED STATES','PLL (incl. Future)',N'ONE TIME PARTY UNITED STATES'),
-(N'PLL (incl. Future)^ONE TIME PARTY MEXICO','PLL (incl. Future)',N'ONE TIME PARTY MEXICO'),
+(N'PLL (incl. Future)^ONEÂ TIMEÂ PARTYÂ MEXICO','PLL (incl. Future)',N'ONEÂ TIMEÂ PARTYÂ MEXICO'),
 (N'PLL (incl. Future)^Philips India Limited','PLL (incl. Future)',N'Philips India Limited'),
 (N'SL Corporation^Beijing Deweitongzhi Trade Co., Ltd','SL Corporation',N'Beijing Deweitongzhi Trade Co., Ltd'),
 (N'SL Corporation^Daiha Company','SL Corporation',N'Daiha Company'),
@@ -1387,7 +1411,7 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 (N'Valeo^CIBIE ARGENTINA S.A.','Valeo',N'CIBIE ARGENTINA S.A.'),
 (N'Valeo^Fabrinet Co.,Ltd.','Valeo',N'Fabrinet Co.,Ltd.'),
 (N'Valeo^Foshan Ichikoh Valeo Auto','Valeo',N'Foshan Ichikoh Valeo Auto'),
-(N'Valeo^GRUPO ANTOLIN BESANÇON','Valeo',N'GRUPO ANTOLIN BESANÇON'),
+(N'Valeo^GRUPO ANTOLIN BESANÃ‡ON','Valeo',N'GRUPO ANTOLIN BESANÃ‡ON'),
 (N'Valeo^ICHIKOH INDUSTRIES (Thailand)','Valeo',N'ICHIKOH INDUSTRIES (Thailand)'),
 (N'Valeo^ICHIKOH INDUSTRIES,L','Valeo',N'ICHIKOH INDUSTRIES,L'),
 (N'Valeo^ICHIKOH(MALAYSIA) SDN. BHD.','Valeo',N'ICHIKOH(MALAYSIA) SDN. BHD.'),
@@ -1405,7 +1429,7 @@ INSERT INTO LUM_MD_SOLD_TO_CUS_CAS_MAP values
 (N'Valeo^UNIVERSAL SCIENTIFIC INDUSTRIAL','Valeo',N'UNIVERSAL SCIENTIFIC INDUSTRIAL'),
 (N'Valeo^VALEO AUTOSYSTEMY SP. Z.O.O.','Valeo',N'VALEO AUTOSYSTEMY SP. Z.O.O.'),
 (N'Valeo^Valeo Ichikoh(China) Auto lighting','Valeo',N'Valeo Ichikoh(China) Auto lighting'),
-(N'Valeo^Valeo Iluminación S.A.','Valeo',N'Valeo Iluminación S.A.'),
+(N'Valeo^Valeo IluminaciÃ³n S.A.','Valeo',N'Valeo IluminaciÃ³n S.A.'),
 (N'Valeo^VALEO ILUMINACION SAU','Valeo',N'VALEO ILUMINACION SAU'),
 (N'Valeo^Valeo Lighting Injection S.A.','Valeo',N'Valeo Lighting Injection S.A.'),
 (N'Valeo^VALEO NORTH AMERICA INC','Valeo',N'VALEO NORTH AMERICA INC'),
